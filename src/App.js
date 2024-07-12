@@ -1,23 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import GradingAssistant from './Pages/GradingAssistant/GradingAssistant';
+import ModifyAssignmentPage from './Pages/ModifyAssignmentPage/ModifyAssignmentPage';
+import EvaluationReportPage from './Pages/EvaluationReportPage/EvaluationReportPage';
+import IndividualEvaluationReport from './Pages/IndividualEvaluationReport/IndividualEvaluationReport';
+// import LoginPage from './Pages/auth/Loginpage/LoginPage';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     {/* <LoginPage></LoginPage> */}
+     <IndividualEvaluationReport></IndividualEvaluationReport>
+     <EvaluationReportPage></EvaluationReportPage>
     </div>
   );
 }

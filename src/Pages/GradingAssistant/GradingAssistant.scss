@@ -1,0 +1,69 @@
+.grading-assistant {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+  
+    .content {
+      flex: 1;
+      max-width: 50%;
+      z-index: 1;
+  
+      h1 {
+        font-size: 3rem;
+        color: #6200ee;
+        margin-bottom: 1rem;
+      }
+  
+      p {
+        font-size: 1rem;
+        color: #333;
+        margin-bottom: 2rem;
+      }
+  
+      .buttons {
+        display: flex;
+        gap: 1rem;
+  
+        .ant-btn {
+          height: 40px;
+          border-radius: 20px;
+          font-weight: bold;
+  
+          &-primary {
+            background-color: #6200ee;
+            border-color: #6200ee;
+  
+            &:hover, &:focus {
+              background-color: #7722ff;
+              border-color: #7722ff;
+            }
+          }
+        }
+      }
+    }
+  
+    .image-container {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+  
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 50%;
+      }
+    }
+  
+    .illustration {
+      position: absolute;
+      top: 10%;
+      right: 45%;
+      width: 150px;
+      height: 150px;
+      // Add your SVG illustration styles here
+    }
+  }
