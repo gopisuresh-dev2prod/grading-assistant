@@ -1,0 +1,48 @@
+.custom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // padding: 0.5rem 1rem;
+    // background-color: #ffffff;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    // padding: 1% 2%;
+  margin-top: 1.2%;
+  margin-bottom: 1.3%;
+    .logo {
+      img {
+        height: 40px; // Adjust this value to match your logo size
+      }
+    }
+  
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+  
+      .notification-icon {
+        font-size: 1.2rem;
+        color: #6b7280;
+        cursor: pointer;
+      }
+  
+      .ant-dropdown-trigger {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+  
+        .ant-avatar {
+          margin-right: 0.5rem;
+        }
+  
+        .user-name {
+          margin-right: 0.5rem;
+          font-weight: 500;
+          color: rgba(0, 0, 0, 0.85);
+        }
+  
+        .dropdown-icon {
+          color: #6b7280;
+        }
+      }
+    }
+  }

@@ -3,9 +3,16 @@ import { Button } from 'antd';
 import { PlayCircleOutlined } from '@ant-design/icons';
 import techimage from '../../assests/Image.svg'
 import './GradingAssistant.scss';
+import { useNavigate } from 'react-router-dom';
+import Header from '../common/Header';
 
 const GradingAssistant = () => {
-  return (
+const navigate=useNavigate()
+const handlenavigate=()=>{
+  navigate('/modify-assignment')
+}
+  return (<>
+    <Header></Header>
     <div className="grading-assistant">
       <div className="content">
         <h1>Simplify your</h1>
@@ -16,7 +23,7 @@ const GradingAssistant = () => {
           technology with innovative grading solutions.
         </p>
         <div className="buttons">
-          <Button type="primary">Modify Assignment</Button>
+          <Button type="primary" onClick={handlenavigate}>Create Assignment</Button>
           <Button type="primary">Modify Assignment</Button>
           <Button icon={<PlayCircleOutlined />}>Demo Video</Button>
         </div>
@@ -28,6 +35,7 @@ const GradingAssistant = () => {
         <img src={techimage} alt="Teacher using tablet" />
       </div>
     </div>
+    </>
   );
 };
 
