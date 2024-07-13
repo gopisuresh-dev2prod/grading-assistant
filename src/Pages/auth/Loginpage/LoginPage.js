@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
-import { UserOutlined, LockOutlined, GoogleOutlined, FacebookOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 import './LoginPage.scss';
 
 const LoginPage = () => {
   const [form] = Form.useForm();
+  const [isLogin, setIsLogin] = useState(true);
 
   const onFinish = (values) => {
     console.log('Success:', values);
@@ -13,41 +13,43 @@ const LoginPage = () => {
 
   return (
     <div className="login-page">
-      <div className="login-form-container">
-        <h1>LOGIN</h1>
-        <Form form={form} onFinish={onFinish}>
+      <div className="form-container">
+        <h1 className="title">{isLogin ? 'LOGIN' : 'REGISTER'}</h1>
+        <Form form={form} onFinish={onFinish} className="form">
+          {!isLogin && (
+            <Form.Item
+              name="email"
+              rules={[{ required: true, message: 'Please input your email!' }]}
+            >
+              <Input prefix={<MailOutlined />} placeholder="Email" className="input" />
+            </Form.Item>
+          )}
           <Form.Item
             name="username"
             rules={[{ required: true, message: 'Please input your username!' }]}
           >
-            <Input prefix={<UserOutlined />} placeholder="Username" />
+            <Input prefix={<UserOutlined />} placeholder="Username" className="input" />
           </Form.Item>
           <Form.Item
             name="password"
             rules={[{ required: true, message: 'Please input your password!' }]}
           >
-            <Input.Password prefix={<LockOutlined />} placeholder="Password" />
+            <Input.Password prefix={<LockOutlined />} placeholder="Password" className="input" />
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit" className="login-button">
-              Login Now
+            <Button type="primary" htmlType="submit" className="button">
+              {isLogin ? 'Login Now' : 'Register Now'}
             </Button>
           </Form.Item>
         </Form>
-        <div className="login-options">
-          <p>Login with Others</p>
-          <Button icon={<GoogleOutlined />} className="google-button">Login with Google</Button>
-          <Button icon={<FacebookOutlined />} className="facebook-button">Login with Facebook</Button>
+        <div className="toggle">
+          <p onClick={() => setIsLogin(!isLogin)}>
+            {isLogin ? 'New here? Register' : 'Already have an account? Login'}
+          </p>
         </div>
       </div>
-      <div className="login-info-container">
-        <div className="info-box">
-          <h2>Intelligent Grading Assistant is designed to redefine educational innovation with</h2>
-          <h1>Our Powerful Grading Tool</h1>
-          <div className="icon-container">
-            <img src="/path-to-your-icon.png" alt="Grading tool icon" />
-          </div>
-        </div>
+      <div className="info-container">
+        {/* Content goes here */}
       </div>
     </div>
   );
