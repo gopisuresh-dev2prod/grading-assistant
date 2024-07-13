@@ -44,14 +44,14 @@ const LoginPage = () => {
         </Form>
       
         <div className="social-login">
-        <h2>Login with Others</h2>
+        <h2> {isLogin ? 'Login' : 'Register'} with Others</h2>
         <div className="social-buttons">
           <div className="social-button google">
-            <img src="path/to/google-icon.png" alt="Google" />
+            <img src={require('../../../assests/google.png')} alt="Google" />
             <span>Login with Google</span>
           </div>
           <div className="social-button facebook">
-            <img src="path/to/facebook-icon.png" alt="Facebook" />
+            <img src={require('../../../assests/facebook.png')} alt="Facebook" />
             <span>Login with Facebook</span>
           </div>
         </div>

@@ -46,7 +46,8 @@
 
   cursor: pointer;
   transition: background 0.3s;
-  height: 3.8rem;
+  height: 4rem;
+  width: 12rem;
   &:hover {
     background: linear-gradient(90deg, #cf2887 0%, #6d28d9 100%);
   }
