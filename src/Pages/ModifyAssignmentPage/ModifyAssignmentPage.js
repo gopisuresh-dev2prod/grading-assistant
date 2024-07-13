@@ -30,6 +30,7 @@ const ModifyAssignmentPage = () => {
 
   const handleStartGrading = () => {
     setIsGrading(true);
+    setGradingComplete(false);
     // Simulate grading process
     setTimeout(() => {
       setIsGrading(false);
