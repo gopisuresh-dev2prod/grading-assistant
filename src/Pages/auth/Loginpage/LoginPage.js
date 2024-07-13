@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 import './LoginPage.scss';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [form] = Form.useForm();
   const [isLogin, setIsLogin] = useState(true);
-
+const navigate=useNavigate()
   const onFinish = (values) => {
     console.log('Success:', values);
+    // Perform your login or registration logic here
+    // After successful login/registration, set the authToken in localStorage and navigate
+    localStorage.setItem('authToken', 'your-auth-token');
+    navigate('/grading-assistant');
   };
 
   return (

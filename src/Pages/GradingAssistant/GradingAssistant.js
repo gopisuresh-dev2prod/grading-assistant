@@ -1,13 +1,16 @@
 import React from 'react';
 import { Button } from 'antd';
 import { PlayCircleOutlined } from '@ant-design/icons';
+import techimage from '../../assests/Image.svg'
 import './GradingAssistant.scss';
 
 const GradingAssistant = () => {
   return (
     <div className="grading-assistant">
       <div className="content">
-        <h1>Simplify your grading process effortlessly</h1>
+        <h1>Simplify your</h1>
+        <h1> grading process</h1>
+        <h1>effortlessly</h1>
         <p>
           Intelligent Grading Assistant leads the way in educational
           technology with innovative grading solutions.
@@ -18,14 +21,17 @@ const GradingAssistant = () => {
           <Button icon={<PlayCircleOutlined />}>Demo Video</Button>
         </div>
       </div>
-      <div className="image-container">
-        <img src="/path-to-your-image.jpg" alt="Teacher using tablet" />
-      </div>
       <div className="illustration">
-        {/* Add your SVG illustration here */}
+        <img src={require('../../assests/liustaration.png')} alt="Grading illustration" />
+      </div>
+      <div className="teacher-image">
+        <img src={techimage} alt="Teacher using tablet" />
       </div>
     </div>
   );
 };
 
 export default GradingAssistant;
+
+
+
