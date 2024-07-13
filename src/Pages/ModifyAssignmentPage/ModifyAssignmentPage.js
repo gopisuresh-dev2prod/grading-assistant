@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Input, Button, Upload, message, Skeleton } from 'antd';
-import { UploadOutlined, EditOutlined, BellOutlined } from '@ant-design/icons';
+import { UploadOutlined, EditOutlined } from '@ant-design/icons';
 import './ModifyAssignmentPage.scss';
 import Header from '../common/Header';
 import EvaluationReportPage from '../EvaluationReportPage/EvaluationReportPage';
@@ -8,85 +8,104 @@ import IndividualEvaluationReport from '../IndividualEvaluationReport/Individual
 
 const ModifyAssignmentPage = () => {
   const [assignmentName, setAssignmentName] = useState('');
-  const [filesUploaded, setFilesUploaded] = useState(false);
-  const [startGrading, setStartGrading] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [files, setFiles] = useState({
+    assignment: [],
+    rubric: [],
+    content: [],
+    mapping: []
+  });
+  const [isGrading, setIsGrading] = useState(false);
+  const [gradingComplete, setGradingComplete] = useState(false);
 
   const handleNameChange = (e) => {
     setAssignmentName(e.target.value);
   };
 
-  const handleUpload = (info) => {
-    if (info.file.status === 'done') {
-      message.success(`${info.file.name} file uploaded successfully`);
-      setFilesUploaded(true);
-    } else if (info.file.status === 'error') {
-      message.error(`${info.file.name} file upload failed.`);
-    }
+  const handleFileChange = (info, type) => {
+    setFiles(prev => ({
+      ...prev,
+      [type]: [...prev[type], ...info.fileList]
+    }));
   };
 
   const handleStartGrading = () => {
-    setLoading(true);
+    setIsGrading(true);
+    // Simulate grading process
     setTimeout(() => {
-      setStartGrading(true);
-      setLoading(false);
-    }, 5000); // Show the EvaluationReportPage and IndividualEvaluationReport after 5 seconds
+      setIsGrading(false);
+      setGradingComplete(true);
+    }, 3000);
   };
 
-  const uploadProps = {
-    name: 'file',
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-    onChange: handleUpload,
-  };
+  const uploadProps = (type) => ({
+    accept: '.jpg,.png,.gif,.pdf',
+    multiple: true,
+    beforeUpload: (file) => {
+      handleFileChange({ fileList: [file] }, type);
+      return false; // Prevent default upload behavior
+    },
+    fileList: files[type],
+  });
 
   return (
-    <>
+    <div className="modify-assignment-page">
       <Header />
-      <div className="modify-assignment-page">
-        <div className="content">
-          <div className="assignment-name">
-            <Input
-              placeholder="Enter Assignment Name"
-              value={assignmentName}
-              onChange={handleNameChange}
-            />
-            <Button type="primary" disabled={!assignmentName}>Create</Button>
-          </div>
-          <h2>Intelligent Grading Assistant</h2>
-          <div className="upload-section">
-            {['Upload Assignment', 'Upload Grading Rubric', 'Upload Content', 'Assignment to Student Mapping'].map((title) => (
-              <div key={title} className="upload-card">
-                <h3>{title} <EditOutlined /></h3>
-                <Upload {...uploadProps}>
-                  <div className="upload-area">
-                    <img src="path-to-upload-icon.png" alt="Upload" />
-                    <p>Drag and drop images here</p>
-                    <p className="file-types">Files supported: JPG, PNG, GIF, PDF</p>
-                    <Button icon={<UploadOutlined />}>Browse</Button>
-                  </div>
-                </Upload>
-              </div>
-            ))}
-          </div>
-          <Button
-            type="primary"
-            className="start-grading"
-            onClick={handleStartGrading}
-            disabled={!filesUploaded}
-          >
-            START GRADING
-          </Button>
+      <div className="content-wrapper">
+        <div className="assignment-header">
+          <Input
+            className="assignment-name-input"
+            placeholder="Enter Assignment Name"
+            value={assignmentName}
+            onChange={handleNameChange}
+          />
+          <Button type="primary" onClick={() => message.success('Assignment created')}>Create</Button>
         </div>
-        {loading ? (
-          <Skeleton active />
-        ) : startGrading ? (
-          <>
+        <h1 className="page-title">Intelligent Grading Assistant</h1>
+        <div className="upload-grid">
+          {[
+            { title: 'Upload Assignment', type: 'assignment' },
+            { title: 'Upload Grading Rubric', type: 'rubric' },
+            { title: 'Upload Content', type: 'content' },
+            { title: 'Assignment to Student Mapping', type: 'mapping' }
+          ].map(({ title, type }) => (
+            <div key={title} className="upload-card">
+              <h3>{title} <EditOutlined /></h3>
+              <Upload {...uploadProps(type)} className="upload-area">
+                <div className="upload-content">
+                  <UploadOutlined className="upload-icon" />
+                  <p>Drag and drop files here</p>
+                  <p className="file-types">JPG, PNG, GIF, PDF</p>
+                  <Button icon={<UploadOutlined />}>Browse</Button>
+                </div>
+              </Upload>
+            </div>
+          ))}
+        </div>
+        <Button
+          type="primary"
+          size="large"
+          className="start-grading-btn"
+          onClick={handleStartGrading}
+          disabled={isGrading}
+        >
+          {isGrading ? 'GRADING...' : 'START GRADING'}
+        </Button>
+
+        {isGrading && (
+          <div className="loading-skeletons">
+            <Skeleton active />
+            <Skeleton active />
+          </div>
+        )}
+
+        {gradingComplete && (
+          <div className="evaluation-reports">
             <EvaluationReportPage />
             <IndividualEvaluationReport />
-          </>
-        ) : null}
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 
