@@ -12,7 +12,7 @@ overflow: auto;
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
-
+justify-content: center;
     .assignment-name-input {
       background-color: #f8f7ff;
       border: none;
@@ -21,7 +21,7 @@ overflow: auto;
       font-size: 16px;
       color: #6c63ff;
       width: 100%;
-      max-width: 400px;
+      width: 600px;
       margin-bottom: 20px;
   
       &::placeholder {
