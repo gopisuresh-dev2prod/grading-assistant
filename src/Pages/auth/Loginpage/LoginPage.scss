@@ -53,11 +53,76 @@
 }
 
 .toggle {
-  margin-top: 20px;
-  text-align: center;
-  color: #666;
-  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+
+  p {
+    cursor: pointer;
+    color: #6d28d9;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #cf2887;
+    }
+  }
 }
+
+.social-login {
+  margin-top: 0.5rem;
+  text-align: center;
+  color: #000;
+
+  h2 {
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .social-buttons {
+    display: flex;
+    flex-direction: column;
+
+    .social-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &.google {
+        background-color: #fff;
+        color: #db4437;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+
+      &.facebook {
+        background-color: #fff;
+        color: #3b5998;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+
+      span {
+        font-size: 0.9rem;
+      }
+    }}}
+  
+
 
 .info-container {
   flex: 1;
