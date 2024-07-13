@@ -61,7 +61,7 @@ const ModifyAssignmentPage = () => {
             value={assignmentName}
             onChange={handleNameChange}
           />
-          <Button type="primary" onClick={() => message.success('Assignment created')}>Create</Button>
+          {/* <Button type="primary" onClick={() => message.success('Assignment created')}>Create</Button> */}
         </div>
         <h1 className="page-title">Intelligent Grading Assistant</h1>
         <div className="upload-grid">
