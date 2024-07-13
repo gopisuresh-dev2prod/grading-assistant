@@ -1,7 +1,7 @@
 .modify-assignment-page {
   background-color: #f8f9ff;
   min-height: 100vh;
-  padding: 2rem 4rem;
+  padding: 4rem 14rem;
 
 
   .assignment-header {
@@ -50,13 +50,12 @@
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
-
   .upload-card {
     background-color: white;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     padding: 1.5rem;
-
+  
     h3 {
       font-size: 1rem;
       color: #2c3e50;
@@ -65,58 +64,58 @@
       justify-content: space-between;
       align-items: center;
       font-weight: 600;
-
+  
       .edit-icon {
         color: #a0a8c5;
         font-size: 1.2rem;
       }
     }
-
+  
     .upload-area {
       border: 2px dashed #e0e6ff;
       border-radius: 10px;
       padding: 2rem 1rem;
       text-align: center;
-      height: 200px;
+      height: 280px; // Increased height to match the image
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
+  
       .upload-icon {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 1rem;
+        width: 60px; // Slightly increased size
+        height: 60px;
+        margin-bottom: 1.5rem;
       }
-
+  
       p {
         margin: 0;
         color: #4a5568;
-        font-size: 1.2rem;
+        font-size: 0.9rem;
       }
-
+  
       .file-types {
         color: #a0a8c5;
         font-size: 0.75rem;
         margin-top: 0.5rem;
       }
-
+  
       .upload-buttons {
         display: flex;
         gap: 0.5rem;
-        margin-top: 1rem;
-
+        margin-top: 1.5rem; // Increased margin to push buttons lower
+  
         button {
           background-color: #f0f3ff;
           color: #6c5ce7;
           border: none;
           border-radius: 15px;
           padding: 0.5rem 1rem;
-          font-size: 6rem;
+          font-size: 0.8rem;
           display: flex;
           align-items: center;
           gap: 0.3rem;
-
+  
           &:hover {
             background-color: #e0e6ff;
           }

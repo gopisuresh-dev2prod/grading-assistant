@@ -49,8 +49,10 @@ const ModifyAssignmentPage = () => {
   });
 
   return (
-    <div className="modify-assignment-page">
+    <>
       <Header />
+    <div className="modify-assignment-page">
+    
       <div className="content-wrapper">
         <div className="assignment-header">
           <Input
@@ -107,6 +109,7 @@ const ModifyAssignmentPage = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
