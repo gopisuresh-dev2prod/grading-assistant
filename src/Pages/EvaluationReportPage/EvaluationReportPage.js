@@ -55,8 +55,8 @@ const EvaluationReportPage = () => {
           <ShoppingCartOutlined className="icon" />
           <div className="content">
             <h3>Avg. Grade</h3>
-            <h2>05.5k</h2>
-            <span className="positive">+15%</span>
+            <h2>86.9</h2>
+            {/* <span className="positive">+15%</span> */}
             <a href="#">View Report</a>
           </div>
         </Card>
@@ -64,8 +64,8 @@ const EvaluationReportPage = () => {
           <LineChartOutlined className="icon" />
           <div className="content">
             <h3>Highest Grade</h3>
-            <h2>$2,435k</h2>
-            <span className="negative">-3.5%</span>
+            <h2>98</h2>
+            {/* <span className="negative">-3.5%</span> */}
             <a href="#">View Report</a>
           </div>
         </Card>
@@ -73,8 +73,8 @@ const EvaluationReportPage = () => {
           <FileTextOutlined className="icon" />
           <div className="content">
             <h3>Lowest Grade</h3>
-            <h2>3.5M</h2>
-            <span className="positive">+15%</span>
+            <h2>75</h2>
+            {/* <span className="positive">+15%</span> */}
             <a href="#">View More</a>
           </div>
         </Card>

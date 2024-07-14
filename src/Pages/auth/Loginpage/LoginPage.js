@@ -55,10 +55,10 @@ const navigate=useNavigate()
             <img src={require('../../../assests/google.png')} alt="Google" />
             <span>Login with Google</span>
           </div>
-          <div className="social-button facebook">
+          {/* <div className="social-button facebook">
             <img src={require('../../../assests/facebook.png')} alt="Facebook" />
             <span>Login with Facebook</span>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="toggle">
