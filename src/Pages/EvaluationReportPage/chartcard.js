@@ -133,8 +133,8 @@ const ChartCard = () => {
       backgroundColor: 'white',
       borderRadius: '8px',
       boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-      padding: '20px',
-      margin: '20px'
+    //   padding: '20px',
+    //   margin: '20px'
     }}>
       <ReactECharts option={chartOption} style={{height: '400px', width: '100%'}} />
     </div>
