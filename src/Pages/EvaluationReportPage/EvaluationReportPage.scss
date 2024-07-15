@@ -1,6 +1,6 @@
 .evaluation-report-page {
     padding: 2rem;
-    background-color: #f5f7ff;
+    // background-color: #f5f7ff;
   
     h1 {
       font-size: 1.5rem;
@@ -75,85 +75,22 @@
     .charts-section {
       display: flex;
       gap: 1rem;
-  
-      .chart-card {
-        flex: 2;
+      height: 100%;
+      .chart-card,
+      .histogram-chart {
+        flex: 1;
         border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         padding: 1rem;
-  
+     
+        // width: 50%;
+        
         h3 {
           font-size: 1rem;
           color: #333;
           margin-bottom: 1rem;
         }
       }
-  
-      .sales-target {
-        flex: 1;
-        border-radius: 12px;
-        background: linear-gradient(90deg, #cf2887 0%, #6d28d9 100%);
-        color: white;
-        padding: 1.5rem;
-        position: relative;
-        overflow: hidden;
-  height: auto;
-        h3 {
-          font-size: 1rem;
-          margin-bottom: 0.5rem;
-        }
-  
-        h2 {
-          font-size: 2.5rem;
-          font-weight: bold;
-          margin-bottom: 0.5rem;
-        }
-  
-        p {
-          font-size: 0.9rem;
-          margin-bottom: 1rem;
-        }
-  
-        .team-avatars {
-          display: flex;
-          align-items: center;
-          margin-bottom: 1rem;
-  
-          img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 2px solid white;
-            margin-right: -10px;
-          }
-  
-          span {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-          }
-        }
-  
-        .icon {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          font-size: 1.5rem;
-          background-color: rgba(255, 255, 255, 0.2);
-          border-radius: 50%;
-          padding: 0.5rem;
-        }
-  
-        .positive {
-          background-color: rgba(255, 255, 255, 0.2);
-          padding: 0.2rem 0.5rem;
-          border-radius: 12px;
-        }
-      }
     }
+    
   }

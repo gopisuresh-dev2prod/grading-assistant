@@ -15,7 +15,7 @@ const ModifyAssignmentPage = () => {
     mapping: []
   });
   const [isGrading, setIsGrading] = useState(false);
-  const [gradingComplete, setGradingComplete] = useState(false);
+  const [gradingComplete, setGradingComplete] = useState(true);
 
   // Validation for enabling START GRADING button
   const isStartGradingEnabled = assignmentName.trim() !== '' &&

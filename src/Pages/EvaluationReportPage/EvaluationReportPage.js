@@ -104,40 +104,14 @@ const EvaluationReportPage = ({assignmentName}) => {
       </div>
 
       <div className="charts-section">
-        {/* <Card className="chart-card">
-      <h3>Question-wise Marks Distribution</h3>
-      <ReactECharts option={chartOption} style={{height: '300px'}} />
-    </Card> */}
-        <ChartCard></ChartCard>
+  <div className="chart-card">
+    <ChartCard />
+  </div>
+  <div className="histogram-chart">
+    <HistogramChart />
+  </div>
+</div>
 
-        <Card className="sales-target">
-          <h3>Sales team target</h3>
-          <h2>82%</h2>
-          <p>Achieved</p>
-          <div className="team-avatars">
-            <img
-              src={"https://xsgames.co/randomusers/assets/avatars/male/11.jpg"}
-              alt="Team member"
-            />
-            <img
-              src="https://xsgames.co/randomusers/assets/avatars/male/40.jpg"
-              alt="Team member"
-            />
-            <img
-              src="https://xsgames.co/randomusers/assets/avatars/male/40.jpg"
-              alt="Team member"
-            />
-            <span>+4</span>
-          </div>
-          <ShoppingOutlined className="icon" />
-          <h3>Cleared Queue</h3>
-          <h2>1.4k</h2>
-          <p>
-            No. of Bills <span className="positive">+15%</span>
-          </p>
-        </Card>
-      </div>
-      <HistogramChart></HistogramChart>
     </div>
   );
 };

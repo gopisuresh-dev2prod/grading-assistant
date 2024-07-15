@@ -1,21 +1,64 @@
 // IndividualEvaluationReport.scss
 .individual-evaluation-report {
- margin-bottom: 9rem;
+  margin-bottom: 9rem;
+  padding: 2rem;
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+
+  .ant-table {
+    border: 1px solid #e8e8e8;
+  }
+
+  .ant-table-thead > tr > th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+
   .student-info {
     display: flex;
     align-items: center;
-    
-    span {
-      margin-left: 10px;
-    }
-  }
 
-  .actions {
-    a {
+    .ant-avatar {
       margin-right: 10px;
     }
   }
+
+  .grade {
+    font-weight: bold;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .action-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #1890ff;
+      cursor: pointer;
+
+      &:hover {
+        color: #40a9ff;
+      }
+
+      svg {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .modal-content {
+    display: flex;
+    gap: 20px;
+  }
 }
+
 .ant-modal-content {
   position: relative;
   background-color: #fff;

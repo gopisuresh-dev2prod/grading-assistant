@@ -23,7 +23,7 @@ const IndividualEvaluationReport = () => {
 
   const columns = [
     {
-      title: 'Student',
+      title: '',
       dataIndex: 'student',
       key: 'student',
       render: (text, record) => (
@@ -34,13 +34,13 @@ const IndividualEvaluationReport = () => {
       ),
     },
     {
-      title: 'Grade',
+      title: '',
       dataIndex: 'grade',
       key: 'grade',
       render: (text) => <span className="grade">{text}</span>,
     },
     {
-      title: 'Actions',
+      title: '',
       key: 'actions',
       render: (text, record) => (
         <>
