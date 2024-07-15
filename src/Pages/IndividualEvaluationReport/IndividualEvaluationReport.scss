@@ -1,90 +1,38 @@
+// IndividualEvaluationReport.scss
 .individual-evaluation-report {
-    padding: 2rem;
-    background-color: #f5f7ff;
-  
-    h1 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 1.5rem;
-    }
-  
-    .ant-table {
-      background-color: transparent;
-  
-      .ant-table-thead {
-        display: none;
-      }
-  
-      .ant-table-tbody {
-        > tr {
-          > td {
-            background-color: white;
-            border: none;
-            padding: 1rem;
-  
-            &:first-child {
-              border-top-left-radius: 12px;
-              border-bottom-left-radius: 12px;
-            }
-  
-            &:last-child {
-              border-top-right-radius: 12px;
-              border-bottom-right-radius: 12px;
-            }
-          }
-  
-          &:hover > td {
-            background-color: #f9f9f9 !important;
-          }
-  
-          &:not(:last-child) {
-            margin-bottom: 0.5rem;
-          }
-        }
-      }
-    }
-  
-    .student-info {
-      display: flex;
-      align-items: center;
-  
-      .ant-avatar {
-        margin-right: 1rem;
-        width: 40px;
-        height: 40px;
-      }
-  
-      span {
-        font-weight: 500;
-        color: #333;
-      }
-    }
-  
-    .grade {
-      font-weight: bold;
-      color: #333;
-      font-size: 1.1rem;
-    }
-  
-    .actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
-  
-      .action-link {
-        display: flex;
-        align-items: center;
-        color: #5c2ede;
-        font-size: 0.9rem;
-  
-        .anticon {
-          margin-right: 0.3rem;
-        }
-  
-        &:hover {
-          text-decoration: underline;
-        }
-      }
+  .student-info {
+    display: flex;
+    align-items: center;
+    
+    span {
+      margin-left: 10px;
     }
   }
+
+  .actions {
+    a {
+      margin-right: 10px;
+    }
+  }
+}
+.ant-modal-content {
+  position: relative;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  pointer-events: auto;
+  width: 110rem;
+  right: 65%;
+  height: 50rem;
+}
+.modal-content {
+  display: flex;
+  gap: 20px;
+justify-content: space-between;
+  .docx-viewer {
+    height: 500px;
+    // flex: 1;
+  }
+}
