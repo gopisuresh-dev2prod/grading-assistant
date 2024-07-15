@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
 import { PlayCircleOutlined } from '@ant-design/icons';
-import techimage from '../../assests/Image.svg'
+import techimage from '../../assests/seniordss.svg'
 import './GradingAssistant.scss';
 import { useNavigate } from 'react-router-dom';
 import Header from '../common/Header';

@@ -5,7 +5,7 @@ import { BellFilled, CaretDownOutlined, UserOutlined } from '@ant-design/icons';
 import './Header.scss';
 
 // Import your logo image
-// import logoImage from './path-to-your-logo.png'; // Update this path
+import logoImage from '../../assests/logo.svg'; 
 
 const Header = () => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <header className="custom-header">
       <div className="logo">
-        {/* <img src={logoImage} alt="STEPS AI Logo" /> */}
+        <img src={logoImage} alt="STEPS AI Logo" />
       </div>
       <div className="user-actions">
         <BellFilled className="notification-icon" />
