@@ -34,20 +34,28 @@ const ModifyAssignmentPage = () => {
       });
       return;
     }
+
     setIsGrading(true);
     setGradingComplete(false);
-    setCountdown(10); // Reset the countdown
+    setCountdown(60); // Reset the countdown
 
     const countdownInterval = setInterval(() => {
-      setCountdown(prevCountdown => prevCountdown - 1);
+      setCountdown(prevCountdown => {
+        if (prevCountdown > 55) {
+          return prevCountdown - 1;
+        } else if (prevCountdown > 1) {
+          // Skip directly to 5 when countdown reaches 55
+          return prevCountdown === 52 ? 5 : prevCountdown - 1;
+        } else {
+          clearInterval(countdownInterval);
+          setIsGrading(false);
+          setGradingComplete(true);
+          return 0;
+        }
+      });
     }, 1000);
-
-    setTimeout(() => {
-      clearInterval(countdownInterval);
-      setIsGrading(false);
-      setGradingComplete(true);
-    }, 10000);
   };
+
 
   const handleFileChange = (info, type) => {
     const { fileList } = info;
