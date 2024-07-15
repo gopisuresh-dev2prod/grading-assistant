@@ -13,7 +13,7 @@ const ChartCard = () => {
       }
     },
     legend: {
-      data: ['Question 1', 'Question 2', 'Question 3', 'Question 5', 'Question 6'],
+      data: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6'],
       top: 25,
       textStyle: {
         fontSize: 12
@@ -28,7 +28,7 @@ const ChartCard = () => {
     },
     xAxis: {
       type: 'category',
-      data: ['Question 1', 'Question 2', 'Question 3', 'Question 5', 'Question 6'],
+      data: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6'],
       axisLine: { show: false },
       axisTick: { show: false },
     },
@@ -45,88 +45,110 @@ const ChartCard = () => {
     },
     series: [
       {
-        name: 'Question 1',
+        name: 'Q1',
         type: 'boxplot',
         data: [
-          [26, 27, 30, 31.5, 34.5],
+          [19, 27.5, 30.0, 31.25, 34],
+          [],
           [],
           [],
           [],
           []
         ],
         itemStyle: { 
-            color: '#5470c6',
-            borderWidth: 2
-          },
-          boxWidth: ['35%', '35%']
+          color: '#5470c6',
+          borderWidth: 2
+        },
+        boxWidth: ['35%', '35%']
       },
       {
-        name: 'Question 2',
+        name: 'Q2',
         type: 'boxplot',
         data: [
           [],
-          [21, 24, 30.5, 32, 34.5],
+          [22, 28.0, 30.5, 31.75, 34],
+          [],
           [],
           [],
           []
         ],
         itemStyle: { 
-            color: '#91cc75',
-            borderWidth: 2
-          },
-          boxWidth: ['40%', '40%']
-  
+          color: '#91cc75',
+          borderWidth: 2
+        },
+        boxWidth: ['40%', '40%']
       },
       {
-        name: 'Question 3',
+        name: 'Q3',
         type: 'boxplot',
         data: [
           [],
           [],
-          [23, 27.5, 30, 32.5, 35],
+          [21, 22.75, 30.0, 31.25, 35],
+          [],
           [],
           []
         ],
         itemStyle: { 
-            color: '#fac858',
-            borderWidth: 2
-          },
-          boxWidth: ['40%', '40%']
+          color: '#fac858',
+          borderWidth: 2
+        },
+        boxWidth: ['40%', '40%']
       },
       {
-        name: 'Question 5',
+        name: 'Q4',
         type: 'boxplot',
         data: [
           [],
           [],
           [],
-          [27, 28, 32.5, 34.5, 35],
+          [23, 28.0, 29.0, 30.25, 35],
+          [],
           []
         ],
         itemStyle: { 
-            color: '#ee6666',
-            borderWidth: 2
-          },
-          boxWidth: ['40%', '40%']
+          color: '#ee6666',
+          borderWidth: 2
+        },
+        boxWidth: ['40%', '40%']
       },
       {
-        name: 'Question 6',
+        name: 'Q5',
         type: 'boxplot',
         data: [
           [],
           [],
           [],
           [],
-          [24, 27, 30, 34.5, 35]
+          [29, 31.0, 33.0, 34.0, 35],
+          []
         ],
         itemStyle: { 
-            color: '#73c0de',
-            borderWidth: 2
-          },
-          boxWidth: ['40%', '40%']
+          color: '#73c0de',
+          borderWidth: 2
+        },
+        boxWidth: ['40%', '40%']
+      },
+      {
+        name: 'Q6',
+        type: 'boxplot',
+        data: [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [24, 28.0, 29.0, 32.0, 35]
+        ],
+        itemStyle: { 
+          color: '#73c0de',
+          borderWidth: 2
+        },
+        boxWidth: ['40%', '40%']
       }
     ]
   };
+  
 
   return (
     <div className="chart-card" style={{

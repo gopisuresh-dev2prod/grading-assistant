@@ -27,7 +27,7 @@ const HistogramChart = () => {
     },
     xAxis: {
       type: 'category',
-      data: ['75', '80', '85', '90', '95'],
+      data: ['75', '76', '82', '85', '89', '95', '97', '98'],
       name: 'Total Marks',
       nameLocation: 'middle',
       nameGap: 30,
@@ -41,14 +41,14 @@ const HistogramChart = () => {
       nameLocation: 'middle',
       nameGap: 40,
       max: 3,
-      interval: 0.5
+      interval: 1
     },
     series: [
       {
         name: 'Frequency',
         type: 'bar',
         barWidth: '60%',
-        data: [3, 0, 3, 2, 3],
+        data: [1, 1, 1, 3, 2, 1, 1, 1],
         itemStyle: {
           color: '#fac858'
         }
@@ -58,7 +58,7 @@ const HistogramChart = () => {
         type: 'line',
         smooth: true,
         showSymbol: false,
-        data: [0.7, 0.9, 1.3, 1.2, 0.9],
+        data: [1, 1, 1, 3, 2, 1, 1, 1],
         lineStyle: {
           color: '#ff9933',
           width: 2
@@ -66,6 +66,7 @@ const HistogramChart = () => {
       }
     ]
   };
+  
 
   return (
     <div style={{
