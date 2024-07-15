@@ -43,7 +43,8 @@ const IndividualEvaluationReport = () => {
       title: 'Actions',
       key: 'actions',
       render: (text, record) => (
-        <div className="actions">
+        <>
+       {record?.status !=='review'? <div className="actions">
           <a onClick={() => showModal(record)} className="action-link">
             <FileTextOutlined /> View Report
           </a>
@@ -53,22 +54,18 @@ const IndividualEvaluationReport = () => {
           <a href="#" className="action-link">
             <ExportOutlined /> Export
           </a>
-        </div>
+        </div>:<a href="#" className="action-link">
+           review assignment
+          </a>}
+        </>
       ),
     },
   ];
 
   const data = [
+  
     {
       key: 1,
-      student: 'Nicholas Patrick',
-      grade: '2540.58',
-      avatar: 'https://ui-avatars.com/api/?name=Nicholas+Patrick', // Replace with actual avatar URL
-      leftdocx:'',
-      rightDocx:''
-    },
-    {
-      key: 2,
       student: 'Avery',
       grade: '3000.00',
       avatar: 'https://ui-avatars.com/api/?name=Avery', 
@@ -76,12 +73,21 @@ const IndividualEvaluationReport = () => {
       rightDocx:require('../../assests/avan_results_grades.docx')
     },
     {
-      key: 3,
+      key: 2,
       student: 'Ethan Clark',
       grade: '2750.25',
       avatar: 'https://ui-avatars.com/api/?name=Ethan+Clark',
       leftDocx:require('../../assests/Ethan_Clark_answers.docx'),
       rightDocx:require('../../assests/ethanresults.docx')
+    },
+    {
+      key: 3,
+      student: 'Nicholas Patrick',
+      grade: '2540.58',
+      avatar: 'https://ui-avatars.com/api/?name=Nicholas+Patrick', // Replace with actual avatar URL
+      leftdocx:'',
+      rightDocx:'',
+      status:'review'
     },
   ];
 

@@ -85,7 +85,7 @@ const ModifyAssignmentPage = () => {
             {[
               { title: 'Upload Assignment', type: 'assignment' },
               { title: 'Upload Grading Rubric', type: 'rubric' },
-              { title: 'Upload Content', type: 'content' },
+              { title: 'Upload Course Content', type: 'content' },
               { title: 'Assignment to Student Mapping', type: 'mapping' }
             ].map(({ title, type }) => (
               <div key={title} className="upload-card">
