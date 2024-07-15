@@ -62,10 +62,29 @@ justify-content: center;
           font-size: 32px;
           color: #1890ff;
         }
+        .file-count {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+  
+          span {
+            // font-size: 16px;
+            // margin: 10px 0;
+          }
+  
+          .add-more-btn {
+            margin-top: 10px;
+          }
+        }
+  
         .file-types {
           margin-top: 5px;
           color: #888;
+          // display: none;
         }
+      
       }
       .success-icon {
         display: flex;
@@ -80,7 +99,9 @@ justify-content: center;
       }
     }
   }
-
+  .ant-upload-list {
+    display: none;
+}
   .start-grading-btn {
     background: linear-gradient(90deg, #6d28d9 0%, #cf2887 100%);
   color: #fff;

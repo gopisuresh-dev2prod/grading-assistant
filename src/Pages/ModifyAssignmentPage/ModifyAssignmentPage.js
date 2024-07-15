@@ -17,7 +17,6 @@ const ModifyAssignmentPage = () => {
   const [isGrading, setIsGrading] = useState(false);
   const [gradingComplete, setGradingComplete] = useState(true);
 
-  // Validation for enabling START GRADING button
   const isStartGradingEnabled = assignmentName.trim() !== '' &&
     Object.values(files).some(fileList => fileList.length > 0);
 
@@ -25,45 +24,66 @@ const ModifyAssignmentPage = () => {
     setAssignmentName(e.target.value);
   };
 
-  const handleFileChange = (info, type) => {
-    const { file } = info;
-    file.status = 'done';
-    setFiles(prev => ({
-      ...prev,
-      [type]: [...prev[type], file]
-    }));
-    message.success(`${file.name} uploaded successfully`);
-  };
-
   const handleStartGrading = () => {
     setIsGrading(true);
     setGradingComplete(false);
-    // Simulate grading process
     setTimeout(() => {
       setIsGrading(false);
       setGradingComplete(true);
     }, 3000);
   };
 
+  const handleFileChange = (info, type) => {
+    const { fileList } = info;
+    setFiles(prev => ({
+      ...prev,
+      [type]: fileList.map(file => ({
+        ...file,
+        status: 'done'
+      }))
+    }));
+    // message.success(`${info.file.name} uploaded successfully`);
+  };
+
   const uploadProps = (type) => ({
     accept: '.jpg,.png,.gif,.pdf',
     multiple: true,
-    beforeUpload: (file) => {
-      handleFileChange({ file }, type);
-      return false; // Prevent default upload behavior
-    },
     fileList: files[type],
+    onChange: (info) => handleFileChange(info, type),
+    onRemove: (file) => {
+      const index = files[type].indexOf(file);
+      const newFileList = files[type].slice();
+      newFileList.splice(index, 1);
+      setFiles(prev => ({
+        ...prev,
+        [type]: newFileList
+      }));
+    },
   });
 
-  const handleReset = () => {
-    setAssignmentName('');
-    setFiles({
-      assignment: [],
-      rubric: [],
-      content: [],
-      mapping: []
-    });
-    setGradingComplete(false);
+  const renderUploadContent = (type) => {
+    const fileCount = files[type].length;
+    
+    if (fileCount === 0) {
+      return (
+        <>
+          <UploadOutlined className="upload-icon" />
+          <p>Drag and drop files here</p>
+          <p className="file-types">JPG, PNG, GIF, PDF</p>
+          <Button icon={<UploadOutlined />}>Browse</Button>
+        </>
+      );
+    }
+    
+    return (
+      <div className="file-count">
+        <CheckCircleOutlined style={{ color: 'green', fontSize: '24px' }} />
+        <span>{fileCount} file{fileCount > 1 ? 's' : ''} uploaded</span>
+        <Button icon={<UploadOutlined />} className="add-more-btn">
+          Add More
+        </Button>
+      </div>
+    );
   };
 
   return (
@@ -78,7 +98,6 @@ const ModifyAssignmentPage = () => {
               value={assignmentName}
               onChange={handleNameChange}
             />
-            <Button type="primary" className="rest-grading-btn"  onClick={handleReset}>Reset</Button>
           </div>
           <h1 className="page-title">Intelligent Grading Assistant</h1>
           <div className="upload-grid">
@@ -92,19 +111,7 @@ const ModifyAssignmentPage = () => {
                 <h3>{title} <EditOutlined /></h3>
                 <Upload {...uploadProps(type)} className="upload-area">
                   <div className="upload-content">
-                    {files[type].length ? (
-                      <div className="success-icon">
-                        <CheckCircleOutlined style={{ color: 'green', fontSize: '24px' }} />
-                        <p>Upload Successful</p>
-                      </div>
-                    ) : (
-                      <>
-                        <UploadOutlined className="upload-icon" />
-                        <p>Drag and drop files here</p>
-                        <p className="file-types">JPG, PNG, GIF, PDF</p>
-                        <Button icon={<UploadOutlined />}>Browse</Button>
-                      </>
-                    )}
+                    {renderUploadContent(type)}
                   </div>
                 </Upload>
               </div>

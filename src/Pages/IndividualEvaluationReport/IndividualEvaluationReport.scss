@@ -1,21 +1,48 @@
-// IndividualEvaluationReport.scss
 .individual-evaluation-report {
-  margin-bottom: 9rem;
   padding: 2rem;
-
+  // background-color: #f5f7ff;
+margin-bottom: 10rem;
   h1 {
     font-size: 1.5rem;
     font-weight: bold;
+    color: #333;
     margin-bottom: 1.5rem;
   }
 
   .ant-table {
-    border: 1px solid #e8e8e8;
-  }
+    background-color: transparent;
 
-  .ant-table-thead > tr > th {
-    background-color: #f0f0f0;
-    font-weight: bold;
+    .ant-table-thead {
+      display: none;
+    }
+
+    .ant-table-tbody {
+      > tr {
+        > td {
+          background-color: white;
+          border: none;
+          padding: 1rem;
+
+          &:first-child {
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+          }
+
+          &:last-child {
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+          }
+        }
+
+        &:hover > td {
+          background-color: #f9f9f9 !important;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
   }
 
   .student-info {
@@ -23,60 +50,42 @@
     align-items: center;
 
     .ant-avatar {
-      margin-right: 10px;
+      margin-right: 1rem;
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+    }
+
+    span {
+      font-weight: 500;
+      color: #333;
     }
   }
 
   .grade {
     font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
   }
 
   .actions {
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
     gap: 1rem;
 
     .action-link {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      color: #1890ff;
-      cursor: pointer;
+      color: #5c2ede;
+      font-size: 1.2rem;
+
+      .anticon {
+        margin-right: 0.3rem;
+      }
 
       &:hover {
-        color: #40a9ff;
-      }
-
-      svg {
-        font-size: 1.25rem;
+        text-decoration: underline;
       }
     }
-  }
-
-  .modal-content {
-    display: flex;
-    gap: 20px;
-  }
-}
-
-.ant-modal-content {
-  position: relative;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 0;
-  border-radius: 2px;
-  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-  pointer-events: auto;
-  width: 110rem;
-  right: 65%;
-  height: 50rem;
-}
-.modal-content {
-  display: flex;
-  gap: 20px;
-justify-content: space-between;
-  .docx-viewer {
-    height: 500px;
-    // flex: 1;
   }
 }
