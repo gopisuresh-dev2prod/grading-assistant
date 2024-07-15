@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Input, Button, Upload, message, Skeleton } from 'antd';
-import { UploadOutlined, EditOutlined, CheckCircleOutlined } from '@ant-design/icons';
+import React, { useState, useEffect } from 'react';
+import { Input, Button, Upload, Skeleton } from 'antd';
+import { UploadOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import './ModifyAssignmentPage.scss';
 import Header from '../common/Header';
 import EvaluationReportPage from '../EvaluationReportPage/EvaluationReportPage';
@@ -15,7 +15,8 @@ const ModifyAssignmentPage = () => {
     mapping: []
   });
   const [isGrading, setIsGrading] = useState(false);
-  const [gradingComplete, setGradingComplete] = useState(true);
+  const [gradingComplete, setGradingComplete] = useState(false);
+  const [countdown, setCountdown] = useState(10);
 
   const isStartGradingEnabled = assignmentName.trim() !== '' &&
     Object.values(files).some(fileList => fileList.length > 0);
@@ -27,10 +28,17 @@ const ModifyAssignmentPage = () => {
   const handleStartGrading = () => {
     setIsGrading(true);
     setGradingComplete(false);
+    setCountdown(10); // Reset the countdown
+
+    const countdownInterval = setInterval(() => {
+      setCountdown(prevCountdown => prevCountdown - 1);
+    }, 1000);
+
     setTimeout(() => {
+      clearInterval(countdownInterval);
       setIsGrading(false);
       setGradingComplete(true);
-    }, 3000);
+    }, 10000);
   };
 
   const handleFileChange = (info, type) => {
@@ -42,7 +50,6 @@ const ModifyAssignmentPage = () => {
         status: 'done'
       }))
     }));
-    // message.success(`${info.file.name} uploaded successfully`);
   };
 
   const uploadProps = (type) => ({
@@ -108,9 +115,7 @@ const ModifyAssignmentPage = () => {
               { title: 'Assignment to Student Mapping', type: 'mapping' }
             ].map(({ title, type }) => (
               <div key={title} className="upload-card">
-                <h3>{title}
-                 {/* <EditOutlined /> */}
-                 </h3>
+                <h3>{title}</h3>
                 <Upload {...uploadProps(type)} className="upload-area">
                   <div className="upload-content">
                     {renderUploadContent(type)}
@@ -130,16 +135,19 @@ const ModifyAssignmentPage = () => {
           </Button>
 
           {isGrading && (
-            <div className="loading-skeletons">
-              <Skeleton active />
-              <Skeleton active />
+            <div className="grading-message">
+              <p>Your report will be ready in {countdown} seconds...</p>
+              <div className="loading-skeletons">
+                <Skeleton active />
+                <Skeleton active />
+              </div>
             </div>
           )}
 
           {gradingComplete && (
             <div className="evaluation-reports">
               <EvaluationReportPage assignmentName={assignmentName} />
-              <IndividualEvaluationReport assignmentName={assignmentName}/>
+              <IndividualEvaluationReport assignmentName={assignmentName} />
             </div>
           )}
         </div>

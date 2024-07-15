@@ -121,8 +121,22 @@
     height: 3.5rem;
     border-radius: 8px;
   }
-  .loading-skeletons {
-    margin-top: 2rem;
+  .grading-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    background: linear-gradient(90deg, #A828CF 0%, #3713C1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+
+    .loading-skeletons {
+      margin-top: 20px;
+    }
   }
 
   .evaluation-reports {
