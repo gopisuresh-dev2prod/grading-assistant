@@ -69,7 +69,7 @@ const ModifyAssignmentPage = () => {
   };
 
   const uploadProps = (type) => ({
-    accept: '.jpg,.png,.gif,.pdf',
+    accept: '.docx,.pdf,.jpg,.png,',
     multiple: true,
     fileList: files[type],
     onChange: (info) => handleFileChange(info, type),
@@ -92,7 +92,7 @@ const ModifyAssignmentPage = () => {
         <>
           <UploadOutlined className="upload-icon" />
           <p>Drag and drop files here</p>
-          <p className="file-types">JPG, PNG, GIF, PDF</p>
+          <p className="file-types">Docx, PDF,JPG, PNG</p>
           <Button icon={<UploadOutlined />}>upload</Button>
         </>
       );

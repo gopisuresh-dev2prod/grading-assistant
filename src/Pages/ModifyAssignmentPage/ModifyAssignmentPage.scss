@@ -1,3 +1,14 @@
+$border-color: #6c63ff;
+$highlight-color: #6c63ff;
+$file-type-color: #888;
+$success-color: green;
+$gap: 1.5rem;
+$padding: 20px;
+$border-radius: 8px;
+$icon-size: 32px;
+$button-padding: 4% 0;
+$card-height: 30rem;
+$upload-content-height: 18rem;
 .modify-assignment-page {
   // padding: 2rem;
   height: 100vh;
@@ -36,64 +47,76 @@
     font-weight: 500;
   }
 
-  .upload-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .upload-card {
-    border: 1px solid #d9d9d9;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    padding: 4% 0;
-    height: 30rem;
-  }
-  
-  .upload-area {
+ // Grid layout
+.upload-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: $gap;
+  margin-bottom: 2rem;
+}
+
+// Card styling
+.upload-card {
+  border: 2px solid $border-color;
+  padding: $padding;
+  border-radius: $border-radius;
+  text-align: center;
+  padding: $button-padding;
+  height: $card-height;
+}
+
+// Upload area styling
+.upload-area {
+  margin-top: 10px;
+}
+
+// Upload content styling
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: $upload-content-height;
+}
+
+// Icon styling
+.upload-icon {
+  font-size: $icon-size;
+  color: $highlight-color;
+  margin-top: 10px;
+}
+
+// File count styling
+.file-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-top: 10px;
+}
+
+// File types styling
+.file-types {
+  margin-top: 5px;
+  color: $file-type-color;
+  margin-top: 10px;
+}
+
+// Success icon styling
+.success-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+
+  p {
     margin-top: 10px;
-  }
-  
-  .upload-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 18rem;
-  }
-  
-  .upload-icon {
-    font-size: 32px;
-    color: #1890ff;
-  }
-  
-  .file-count {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-  
-  .file-types {
-    margin-top: 5px;
-    color: #888;
-  }
-  
-  .success-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .success-icon p {
-    margin-top: 10px;
-    color: green;
+    color: $success-color;
     font-weight: bold;
   }
+}
   
   .ant-upload-list {
     display: none;
