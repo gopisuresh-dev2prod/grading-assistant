@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, Upload, Skeleton } from 'antd';
+import { Input, Button, Upload, Skeleton,notification } from 'antd';
 import { UploadOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import './ModifyAssignmentPage.scss';
 import Header from '../common/Header';
@@ -26,6 +26,14 @@ const ModifyAssignmentPage = () => {
   };
 
   const handleStartGrading = () => {
+    if (!isStartGradingEnabled) {
+      notification.error({
+        message: 'Validation Error',
+        description: 'Please ensure an assignment name is provided and files are uploaded.',
+        placement: 'bottom',
+      });
+      return;
+    }
     setIsGrading(true);
     setGradingComplete(false);
     setCountdown(10); // Reset the countdown
@@ -129,7 +137,7 @@ const ModifyAssignmentPage = () => {
             size="large"
             className="start-grading-btn"
             onClick={handleStartGrading}
-            disabled={isGrading || !isStartGradingEnabled}
+            // disabled={isGrading || !isStartGradingEnabled}
           >
             {isGrading ? 'GRADING...' : 'START GRADING'}
           </Button>
