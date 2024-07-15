@@ -15,7 +15,7 @@ const ModifyAssignmentPage = () => {
     mapping: []
   });
   const [isGrading, setIsGrading] = useState(false);
-  const [gradingComplete, setGradingComplete] = useState(false);
+  const [gradingComplete, setGradingComplete] = useState(true);
   const [countdown, setCountdown] = useState(10);
 
   const isStartGradingEnabled = assignmentName.trim() !== '' &&

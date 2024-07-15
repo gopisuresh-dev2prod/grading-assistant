@@ -5,6 +5,9 @@ import {
   LineChartOutlined,
   FileTextOutlined,
   ShoppingOutlined,
+  StockOutlined,
+  RiseOutlined,
+  FallOutlined
 } from "@ant-design/icons";
 import ReactECharts from "echarts-for-react";
 import "./EvaluationReportPage.scss";
@@ -77,7 +80,7 @@ const EvaluationReportPage = ({ assignmentName }) => {
       </h1>
       <div className="stats-cards">
         <Card className="stat-card">
-          <ShoppingCartOutlined className="icon" />
+          <StockOutlined  className="icon" />
           <div className="content">
             <h3>Avg. Grade</h3>
             <h2>86.9</h2>
@@ -86,7 +89,7 @@ const EvaluationReportPage = ({ assignmentName }) => {
           </div>
         </Card>
         <Card className="stat-card">
-          <LineChartOutlined className="icon" />
+          <RiseOutlined  className="icon" />
           <div className="content">
             <h3>Highest Grade</h3>
             <h2>98</h2>
@@ -95,7 +98,7 @@ const EvaluationReportPage = ({ assignmentName }) => {
           </div>
         </Card>
         <Card className="stat-card">
-          <FileTextOutlined className="icon" />
+          <FallOutlined   className="icon" />
           <div className="content">
             <h3>Lowest Grade</h3>
             <h2>75</h2>
@@ -104,7 +107,18 @@ const EvaluationReportPage = ({ assignmentName }) => {
           </div>
         </Card>
       </div>
-      <section className="analysis-section">
+ 
+
+      <div className="charts-section">
+      <div className="chart-container">
+        <ChartCard />
+      </div>
+      <div className="chart-container">
+        <HistogramChart />
+      </div>
+      
+    </div>
+    <section className="analysis-section">
         <h1>Detailed Analysis</h1>
         <div className="analysis-content">
           <h2>Depth of Economic Analysis:</h2>
@@ -188,15 +202,6 @@ const EvaluationReportPage = ({ assignmentName }) => {
           </div>
         </div>
       </section>
-
-      <div className="charts-section">
-      <div className="chart-container">
-        <ChartCard />
-      </div>
-      <div className="chart-container">
-        <HistogramChart />
-      </div>
-    </div>
     </div>
   );
 };

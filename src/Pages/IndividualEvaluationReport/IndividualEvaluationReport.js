@@ -162,7 +162,15 @@ const IndividualEvaluationReport = ({assignmentName}) => {
 
   return (
     <div className="individual-evaluation-report">
+      <div style={{
+        display:'flex',
+        justifyContent:'space-between'
+      }}>
       <h1 className='page-title'>Individual Evaluation Report {">"} {assignmentName}{" "}</h1>
+      <div>
+      <Button> Export All</Button>
+      </div>
+      </div>
       <Table
         columns={columns}
         dataSource={data}
