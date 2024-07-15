@@ -95,7 +95,12 @@ justify-content: center;
     background: linear-gradient(90deg, #cf2887 0%, #6d28d9 100%);
   }
   }
-
+.rest-grading-btn{
+  background: linear-gradient(90deg, #6d28d9 0%, #cf2887 100%);
+  color: #fff;
+  height: 3.5rem;
+  border-radius: 8px;
+}
   .loading-skeletons {
     margin-top: 2rem;
   }

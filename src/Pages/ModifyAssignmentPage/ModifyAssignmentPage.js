@@ -17,6 +17,10 @@ const ModifyAssignmentPage = () => {
   const [isGrading, setIsGrading] = useState(false);
   const [gradingComplete, setGradingComplete] = useState(false);
 
+  // Validation for enabling START GRADING button
+  const isStartGradingEnabled = assignmentName.trim() !== '' &&
+    Object.values(files).some(fileList => fileList.length > 0);
+
   const handleNameChange = (e) => {
     setAssignmentName(e.target.value);
   };
@@ -51,6 +55,17 @@ const ModifyAssignmentPage = () => {
     fileList: files[type],
   });
 
+  const handleReset = () => {
+    setAssignmentName('');
+    setFiles({
+      assignment: [],
+      rubric: [],
+      content: [],
+      mapping: []
+    });
+    setGradingComplete(false);
+  };
+
   return (
     <>
       <Header />
@@ -63,6 +78,7 @@ const ModifyAssignmentPage = () => {
               value={assignmentName}
               onChange={handleNameChange}
             />
+            <Button type="primary" className="rest-grading-btn"  onClick={handleReset}>Reset</Button>
           </div>
           <h1 className="page-title">Intelligent Grading Assistant</h1>
           <div className="upload-grid">
@@ -99,7 +115,7 @@ const ModifyAssignmentPage = () => {
             size="large"
             className="start-grading-btn"
             onClick={handleStartGrading}
-            disabled={isGrading}
+            disabled={isGrading || !isStartGradingEnabled}
           >
             {isGrading ? 'GRADING...' : 'START GRADING'}
           </Button>
@@ -113,7 +129,7 @@ const ModifyAssignmentPage = () => {
 
           {gradingComplete && (
             <div className="evaluation-reports">
-              <EvaluationReportPage />
+              <EvaluationReportPage assignmentName={assignmentName} />
               <IndividualEvaluationReport />
             </div>
           )}
