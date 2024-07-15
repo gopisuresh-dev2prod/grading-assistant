@@ -69,7 +69,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
     {
       key: 1,
       student: 'Avery',
-      grade: '3000.00',
+      grade: '76',
       avatar: 'https://ui-avatars.com/api/?name=Avery',
       leftDocx: require('../../assests/Avery_Thompson_question_answers.docx'),
       rightDocx: require('../../assests/avan_results_grades.docx'),
@@ -77,24 +77,16 @@ const IndividualEvaluationReport = ({assignmentName}) => {
     {
       key: 2,
       student: 'Ethan Clark',
-      grade: '2750.25',
+      grade: '97',
       avatar: 'https://ui-avatars.com/api/?name=Ethan+Clark',
       leftDocx: require('../../assests/Ethan_Clark_answers.docx'),
       rightDocx: require('../../assests/ethanresults.docx'),
     },
-    {
-        key: 3,
-        student: 'Nicholas Patrick',
-        grade: '2540.58',
-        avatar: 'https://ui-avatars.com/api/?name=Nicholas+Patrick',
-        leftDocx: '',
-        rightDocx: '',
-        status: 'review',
-    },
+ 
     {
         key: 4,
         student: 'Madison Parker',
-        grade: '2900.00',
+        grade: '95',
         avatar: 'https://ui-avatars.com/api/?name=Madison+Parker',
         leftDocx: '',
         rightDocx: '',
@@ -102,7 +94,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
     {
         key: 5,
         student: 'Jackson Carter',
-        grade: '3100.00',
+        grade: '82',
         avatar: 'https://ui-avatars.com/api/?name=Jackson+Carter',
         leftDocx: '',
         rightDocx: '',
@@ -110,7 +102,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
     {
         key: 6,
         student: 'Aarav Patel',
-        grade: '2800.00',
+        grade: '75',
         avatar: 'https://ui-avatars.com/api/?name=Aarav+Patel',
         leftDocx: '',
         rightDocx: '',
@@ -118,7 +110,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
     {
         key: 7,
         student: 'Priya Sharma',
-        grade: '2650.00',
+        grade: '85',
         avatar: 'https://ui-avatars.com/api/?name=Priya+Sharma',
         leftDocx: '',
         rightDocx: '',
@@ -126,7 +118,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
     {
         key: 8,
         student: 'Wei Zhang',
-        grade: '2700.00',
+        grade: '85',
         avatar: 'https://ui-avatars.com/api/?name=Wei+Zhang',
         leftDocx: '',
         rightDocx: '',
@@ -134,7 +126,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
     {
         key: 9,
         student: 'Lian Chen',
-        grade: '2850.00',
+        grade: '89',
         avatar: 'https://ui-avatars.com/api/?name=Lian+Chen',
         leftDocx: '',
         rightDocx: '',
@@ -142,7 +134,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
     {
         key: 10,
         student: 'Sofia Müller',
-        grade: '2950.00',
+        grade: '85',
         avatar: 'https://ui-avatars.com/api/?name=Sofia+Müller',
         leftDocx: '',
         rightDocx: '',
@@ -150,7 +142,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
     {
         key: 11,
         student: 'Kofi Adebayo',
-        grade: '2600.00',
+        grade: '98',
         avatar: 'https://ui-avatars.com/api/?name=Kofi+Adebayo',
         leftDocx: '',
         rightDocx: '',
@@ -159,7 +151,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
     {
         key: 12,
         student: 'Isla Singh',
-        grade: '2500.00',
+        grade: '89',
         avatar: 'https://ui-avatars.com/api/?name=Isla+Singh',
         leftDocx: '',
         rightDocx: '',
