@@ -71,7 +71,8 @@ const IndividualEvaluationReport = () => {
       key: 2,
       student: 'Avery',
       grade: '3000.00',
-      leftdocx:require('../../assests/Avery_Thompson_question_answers.docx'),
+      avatar: 'https://ui-avatars.com/api/?name=Avery', 
+      leftDocx:require('../../assests/Avery_Thompson_question_answers.docx'),
       rightDocx:require('../../assests/avan_results_grades.docx')
     },
     {
@@ -79,7 +80,7 @@ const IndividualEvaluationReport = () => {
       student: 'Ethan Clark',
       grade: '2750.25',
       avatar: 'https://ui-avatars.com/api/?name=Ethan+Clark',
-      leftdocx:require('../../assests/Ethan_Clark_answers.docx'),
+      leftDocx:require('../../assests/Ethan_Clark_answers.docx'),
       rightDocx:require('../../assests/ethanresults.docx')
     },
   ];
