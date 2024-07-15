@@ -11,8 +11,8 @@ const IndividualEvaluationReport = () => {
   const showModal = (record) => {
     // Simulate loading DOCX content
     setModalContent({
-      leftDocx: 'https://docs.google.com/document/d/e/2PACX-1vSXN22hjjiKKJjuEA3Q59aVYIiin0ujO6BpMkQq1H119smILZ9snnt558cK2f7Qv9FxVP2SuZ-vAyJC/pub', // Replace with actual DOCX URL
-      rightDocx: 'https://docs.google.com/document/d/e/2PACX-1vSXN22hjjiKKJjuEA3Q59aVYIiin0ujO6BpMkQq1H119smILZ9snnt558cK2f7Qv9FxVP2SuZ-vAyJC/pub', // Replace with actual DOCX URL
+      leftDocx: record.leftDocx, // Replace with actual DOCX URL
+      rightDocx: record.rightDocx, // Replace with actual DOCX URL
     });
     setIsModalVisible(true);
   };
@@ -64,18 +64,23 @@ const IndividualEvaluationReport = () => {
       student: 'Nicholas Patrick',
       grade: '2540.58',
       avatar: 'https://ui-avatars.com/api/?name=Nicholas+Patrick', // Replace with actual avatar URL
+      leftdocx:'',
+      rightDocx:''
     },
     {
       key: 2,
       student: 'Avery',
       grade: '3000.00',
-      avatar: 'https://ui-avatars.com/api/?name=Avery',
+      leftdocx:require('../../assests/Avery_Thompson_question_answers.docx'),
+      rightDocx:require('../../assests/avan_results_grades.docx')
     },
     {
       key: 3,
       student: 'Ethan Clark',
       grade: '2750.25',
       avatar: 'https://ui-avatars.com/api/?name=Ethan+Clark',
+      leftdocx:require('../../assests/Ethan_Clark_answers.docx'),
+      rightDocx:require('../../assests/ethanresults.docx')
     },
   ];
 
@@ -95,8 +100,8 @@ const IndividualEvaluationReport = () => {
         // width={1200} // Adjust width as needed
       >
         <div className="modal-content" style={{ display: 'flex', gap: '20px' }}>
-          <DocxViewer docxUrl={require('../../assests/evaluation results_grades.docx')} />
-          <DocxViewer docxUrl={require('../../assests/evaluation results_grades.docx')} />
+          <DocxViewer docxUrl={modalContent.leftDocx} />
+          <DocxViewer docxUrl={modalContent.rightDocx} />
         </div>
       </Modal>
     </div>
