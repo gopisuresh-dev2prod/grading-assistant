@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
 import { PlayCircleOutlined } from '@ant-design/icons';
-import techimage from '../../assests/seniordss.svg'
+import techimage from '../../assests/Image.svg'
 import './GradingAssistant.scss';
 import { useNavigate } from 'react-router-dom';
 import Header from '../common/Header';
@@ -28,9 +28,9 @@ const handlenavigate=()=>{
           <Button icon={<PlayCircleOutlined />}>Demo Video</Button>
         </div>
       </div>
-      <div className="illustration">
+      {/* <div className="illustration">
         <img src={require('../../assests/liustaration.png')} alt="Grading illustration" />
-      </div>
+      </div> */}
       <div className="teacher-image">
         <img src={techimage} alt="Teacher using tablet" />
       </div>

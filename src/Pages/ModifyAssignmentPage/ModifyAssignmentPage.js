@@ -77,7 +77,7 @@ const ModifyAssignmentPage = () => {
           <UploadOutlined className="upload-icon" />
           <p>Drag and drop files here</p>
           <p className="file-types">JPG, PNG, GIF, PDF</p>
-          <Button icon={<UploadOutlined />}>Browse</Button>
+          <Button icon={<UploadOutlined />}>upload</Button>
         </>
       );
     }
@@ -109,9 +109,9 @@ const ModifyAssignmentPage = () => {
           <h1 className="page-title">Intelligent Grading Assistant</h1>
           <div className="upload-grid">
             {[
-              { title: 'Upload Assignment', type: 'assignment' },
-              { title: 'Upload Grading Rubric', type: 'rubric' },
-              { title: 'Upload Course Content', type: 'content' },
+              { title: ' Assignment', type: 'assignment' },
+              { title: ' Grading Rubric', type: 'rubric' },
+              { title: ' Course Content', type: 'content' },
               { title: 'Assignment to Student Mapping', type: 'mapping' }
             ].map(({ title, type }) => (
               <div key={title} className="upload-card">
