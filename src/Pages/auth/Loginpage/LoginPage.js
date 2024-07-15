@@ -13,6 +13,7 @@ const navigate=useNavigate()
     // Perform your login or registration logic here
     // After successful login/registration, set the authToken in localStorage and navigate
     localStorage.setItem('authToken', 'your-auth-token');
+    localStorage.setItem('username', values.username);
     navigate('/grading-assistant');
   };
 

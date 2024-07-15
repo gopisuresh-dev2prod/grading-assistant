@@ -12,6 +12,7 @@ const Header = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('authToken');
+    localStorage.removeItem('username');
     navigate('/login');
   };
 
@@ -22,7 +23,7 @@ const Header = () => {
       <Menu.Item key="3" onClick={handleLogout}>Logout</Menu.Item>
     </Menu>
   );
-
+const username=localStorage.getItem('username')
   return (
     <header className="custom-header">
       <div className="logo">
@@ -33,8 +34,8 @@ const Header = () => {
         <Dropdown overlay={menu} trigger={['click']}>
           <a onClick={e => e.preventDefault()}>
             <Space>
-              <Avatar icon={<UserOutlined />} />
-              <span className="user-name">Danielle Campbell</span>
+            <Avatar src={`https://ui-avatars.com/api/?name=${username}`} />
+              <span className="user-name">{username}</span>
               <CaretDownOutlined className="dropdown-icon" />
             </Space>
           </a>
