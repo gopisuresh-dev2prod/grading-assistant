@@ -1,20 +1,35 @@
 // DocxViewer.jsx
-import React, { useEffect, useRef } from 'react';
-import { renderAsync } from 'docx-preview';
+import React, { useEffect, useState } from 'react';
+import mammoth from 'mammoth/mammoth.browser';
 import './DocxViewer.scss';
 
 const DocxViewer = ({ docxUrl }) => {
-  const viewerRef = useRef(null);
+  const [content, setContent] = useState('');
 
   useEffect(() => {
-    if (viewerRef.current && docxUrl) {
+    if (docxUrl) {
       fetch(docxUrl)
         .then((response) => response.arrayBuffer())
-        .then((arrayBuffer) => renderAsync(arrayBuffer, viewerRef.current));
+        .then((arrayBuffer) => {
+          mammoth.convertToHtml({ arrayBuffer })
+            .then((result) => {
+              setContent(result.value);
+            })
+            .catch((error) => {
+              console.error('Error converting DOCX to HTML:', error);
+            });
+        })
+        .catch((error) => {
+          console.error('Error fetching DOCX file:', error);
+        });
     }
   }, [docxUrl]);
 
-  return <div ref={viewerRef} className="docx-viewer" />;
+  return (
+    <div className="docx-viewer">
+      <div className="docx-content" dangerouslySetInnerHTML={{ __html: content }} />
+    </div>
+  );
 };
 
 export default DocxViewer;

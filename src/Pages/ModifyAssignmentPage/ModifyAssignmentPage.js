@@ -137,7 +137,7 @@ const ModifyAssignmentPage = () => {
           {gradingComplete && (
             <div className="evaluation-reports">
               <EvaluationReportPage assignmentName={assignmentName} />
-              <IndividualEvaluationReport />
+              <IndividualEvaluationReport assignmentName={assignmentName}/>
             </div>
           )}
         </div>

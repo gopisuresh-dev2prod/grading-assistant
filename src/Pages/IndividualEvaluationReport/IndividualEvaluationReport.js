@@ -4,7 +4,7 @@ import { FileTextOutlined, SyncOutlined, ExportOutlined } from '@ant-design/icon
 import DocxViewer from './DocxViewer';
 import './IndividualEvaluationReport.scss';
 
-const IndividualEvaluationReport = () => {
+const IndividualEvaluationReport = ({assignmentName}) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalContent, setModalContent] = useState({ leftDocx: null, rightDocx: null });
 
@@ -167,7 +167,7 @@ const IndividualEvaluationReport = () => {
 
   return (
     <div className="individual-evaluation-report">
-      <h1>Individual Evaluation Report</h1>
+      <h1>Individual Evaluation Report {">"} {assignmentName}{" "}</h1>
       <Table
         columns={columns}
         dataSource={data}

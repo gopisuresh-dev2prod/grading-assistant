@@ -70,7 +70,7 @@ const HistogramChart = () => {
   return (
     <div style={{
       backgroundColor: 'white',
-      borderRadius: '8px',
+      // borderRadius: '8px',
       boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
     //   padding: '20px',
       // marginTop: '20px'

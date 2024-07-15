@@ -11,7 +11,7 @@ import "./EvaluationReportPage.scss";
 import ChartCard from "./chartcard";
 import HistogramChart from "./HistogramChart";
 
-const EvaluationReportPage = ({assignmentName}) => {
+const EvaluationReportPage = ({ assignmentName }) => {
   const chartOption = {
     title: {
       text: "Question-wise Marks Distribution",
@@ -72,7 +72,9 @@ const EvaluationReportPage = ({assignmentName}) => {
 
   return (
     <div className="evaluation-report-page">
-      <h1>Overall Evaluation Report {">"} {assignmentName} </h1>
+      <h1>
+        Overall Evaluation Report {">"} {assignmentName}{" "}
+      </h1>
       <div className="stats-cards">
         <Card className="stat-card">
           <ShoppingCartOutlined className="icon" />
@@ -104,14 +106,13 @@ const EvaluationReportPage = ({assignmentName}) => {
       </div>
 
       <div className="charts-section">
-  <div className="chart-card">
-    <ChartCard />
-  </div>
-  <div className="histogram-chart">
-    <HistogramChart />
-  </div>
-</div>
-
+      <div className="chart-container">
+        <ChartCard />
+      </div>
+      <div className="chart-container">
+        <HistogramChart />
+      </div>
+    </div>
     </div>
   );
 };
