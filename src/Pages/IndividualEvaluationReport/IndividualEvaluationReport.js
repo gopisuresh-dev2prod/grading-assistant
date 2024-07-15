@@ -167,7 +167,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
 
   return (
     <div className="individual-evaluation-report">
-      <h1>Individual Evaluation Report {">"} {assignmentName}{" "}</h1>
+      <h1 className='page-title'>Individual Evaluation Report {">"} {assignmentName}{" "}</h1>
       <Table
         columns={columns}
         dataSource={data}

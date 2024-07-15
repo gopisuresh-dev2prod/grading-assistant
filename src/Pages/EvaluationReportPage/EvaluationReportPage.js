@@ -72,7 +72,7 @@ const EvaluationReportPage = ({ assignmentName }) => {
 
   return (
     <div className="evaluation-report-page">
-      <h1>
+      <h1 className='page-title'>
         Overall Evaluation Report {">"} {assignmentName}{" "}
       </h1>
       <div className="stats-cards">

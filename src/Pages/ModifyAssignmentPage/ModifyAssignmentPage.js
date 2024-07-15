@@ -108,7 +108,9 @@ const ModifyAssignmentPage = () => {
               { title: 'Assignment to Student Mapping', type: 'mapping' }
             ].map(({ title, type }) => (
               <div key={title} className="upload-card">
-                <h3>{title} <EditOutlined /></h3>
+                <h3>{title}
+                 {/* <EditOutlined /> */}
+                 </h3>
                 <Upload {...uploadProps(type)} className="upload-area">
                   <div className="upload-content">
                     {renderUploadContent(type)}
