@@ -24,6 +24,9 @@ $upload-content-height: 18rem;
     gap: 1rem;
     margin-bottom: 2rem;
     justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  
     .assignment-name-input {
       background-color: #f8f7ff;
       border: none;
@@ -32,11 +35,53 @@ $upload-content-height: 18rem;
       font-size: 16px;
       color: #6c63ff;
       width: 100%;
-      width: 600px;
+      max-width: 600px;
       margin-bottom: 20px;
-
+  
       &::placeholder {
         color: #a8a4ff;
+      }
+    }
+  
+    .assignment-category-select {
+      width: 100%;
+      max-width: 300px;
+  
+      .ant-select-selector {
+        background-color: #f8f7ff;
+        border: none;
+        border-radius: 25px;
+        height: 44px;
+        padding: 0 20px;
+  
+        .ant-select-selection-item,
+        .ant-select-selection-placeholder {
+          line-height: 44px;
+          color: #6c63ff;
+        }
+      }
+  
+      .ant-select-arrow {
+        color: #6c63ff;
+      }
+    }
+  }
+  
+  // Additional styles for dropdown menu
+  .ant-select-dropdown {
+    border-radius: 15px;
+    overflow: hidden;
+  
+    .ant-select-item {
+      padding: 10px 20px;
+      
+      &-option-selected {
+        background-color: #f0f0ff;
+        font-weight: 600;
+      }
+  
+      &-option-active {
+        background-color: #f8f7ff;
       }
     }
   }

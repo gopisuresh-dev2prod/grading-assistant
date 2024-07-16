@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, Upload, Skeleton,notification,Spin } from 'antd';
+import { Input, Button, Upload, Skeleton,notification,Spin,Select } from 'antd';
 import { UploadOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import './ModifyAssignmentPage.scss';
 import Header from '../common/Header';
 import EvaluationReportPage from '../EvaluationReportPage/EvaluationReportPage';
 import IndividualEvaluationReport from '../IndividualEvaluationReport/IndividualEvaluationReport';
 
+const { Option } = Select;
 const ModifyAssignmentPage = () => {
   const [assignmentName, setAssignmentName] = useState('');
   const [files, setFiles] = useState({
@@ -17,8 +18,12 @@ const ModifyAssignmentPage = () => {
   const [isGrading, setIsGrading] = useState(false);
   const [gradingComplete, setGradingComplete] = useState(true);
   const [countdown, setCountdown] = useState(10);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const isStartGradingEnabled = assignmentName.trim() !== '' &&
+  const handleCategoryChange = (value) => {
+    setSelectedCategory(value);
+  };
+  const isStartGradingEnabled = !selectedCategory&&assignmentName.trim() !== '' &&
     Object.values(files).some(fileList => fileList.length > 0);
 
   const handleNameChange = (e) => {
@@ -29,7 +34,7 @@ const ModifyAssignmentPage = () => {
     if (!isStartGradingEnabled) {
       notification.error({
         message: 'Validation Error',
-        description: 'Please ensure an assignment name is provided and files are uploaded.',
+        description: 'Please ensure an select Category and assignment name is provided and files are uploaded.',
         placement: 'bottom',
       });
       return;
@@ -136,14 +141,28 @@ const ModifyAssignmentPage = () => {
       <Header />
       <div className="modify-assignment-page">
         <div className="content-wrapper">
-          <div className="assignment-header">
-            <Input
-              className="assignment-name-input"
-              placeholder="Enter Assignment Name"
-              value={assignmentName}
-              onChange={handleNameChange}
-            />
-          </div>
+        <div className="assignment-header">
+        <Select
+    className="assignment-category-select"
+    placeholder="Select Category"
+    onChange={handleCategoryChange}
+    value={selectedCategory}
+  >
+    <Option value="business">Business and Economics</Option>
+    <Option value="social">Social Sciences</Option>
+    <Option value="language">Language Arts</Option>
+    <Option value="math">Mathematics</Option>
+    <Option value="computer">Computer Science</Option>
+    <Option value="others">Others</Option>
+  </Select>
+  <Input
+    className="assignment-name-input"
+    placeholder="Enter Assignment Name"
+    value={assignmentName}
+    onChange={handleNameChange}
+  />
+  
+</div>
           <h1 className="page-title">Intelligent Grading Assistant</h1>
           <div className="upload-grid">
             {[
