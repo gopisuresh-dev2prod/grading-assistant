@@ -22,7 +22,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
 
   const columns = [
     {
-      title: '',
+      title: 'Student',
       dataIndex: 'student',
       key: 'student',
       render: (text, record) => (
@@ -33,10 +33,15 @@ const IndividualEvaluationReport = ({assignmentName}) => {
       ),
     },
     {
-      title: '',
+      title: 'Grade',
       dataIndex: 'grade',
       key: 'grade',
-      render: (text) => <span className="grade">{text}</span>,
+      render: (text, record) => {
+        if (record.status !== 'review') {
+          return <span className="grade">{text}</span>;
+        }
+        return null; // or return a placeholder for review status
+      }
     },
     {
       title: '',
@@ -146,7 +151,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
         avatar: 'https://ui-avatars.com/api/?name=Kofi+Adebayo',
         leftDocx: '',
         rightDocx: '',
-        status: 'review',
+        // status: 'review',
     },
     {
         key: 12,
@@ -175,7 +180,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
         columns={columns}
         dataSource={data}
         pagination={false}
-        showHeader={false}
+        // showHeader={false}
         rowClassName="custom-row"
       />
       <Modal
