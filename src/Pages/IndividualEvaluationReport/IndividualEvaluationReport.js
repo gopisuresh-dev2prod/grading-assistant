@@ -18,6 +18,7 @@ const IndividualEvaluationReport = ({assignmentName}) => {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    setModalContent({ leftDocx: null, rightDocx: null })
   };
 
   const columns = [
