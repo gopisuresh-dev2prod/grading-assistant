@@ -119,89 +119,84 @@ const EvaluationReportPage = ({ assignmentName }) => {
       
     </div>
     <section className="analysis-section">
-        <h1>Detailed Analysis</h1>
-        <div className="analysis-content">
-          <h2>Depth of Economic Analysis:</h2>
-          <div className="analysis-item">
-            <strong>Strength:</strong>
-            <p>High performers demonstrated detailed cost-benefit analysis, application of economic theories, and comprehensive market evaluations.</p>
-          </div>
-          <div className="analysis-item">
-            <strong>Weakness:</strong>
-            <p>Lower scorers often lacked detailed analysis, failing to connect theoretical principles to practical implications.</p>
-          </div>
+  <h1>Class Performance Insights</h1>
+  <div className="analysis-content">
+    <h2>Strengths:</h2>
+    <div className="analysis-item">
+      <strong>1. Understanding of Economic Concepts:</strong>
+      <ul>
+        <li>Most students have demonstrated a clear understanding of fundamental economic principles.</li>
+        <li>Many students effectively applied these principles to real-world scenarios, showing practical knowledge.</li>
+      </ul>
+    </div>
+    <div className="analysis-item">
+      <strong>2. Critical Thinking and Insight:</strong>
+      <ul>
+        <li>Students like Ethan Clark and Sofia Müller exhibited strong critical thinking, providing insightful analysis and strategic recommendations.</li>
+        <li>Many responses included considerations of broader market implications and competitive dynamics.</li>
+      </ul>
+    </div>
+    <div className="analysis-item">
+      <strong>3. Clarity and Organization:</strong>
+      <ul>
+        <li>The majority of the students structured their answers logically and clearly, enhancing readability and comprehension.</li>
+      </ul>
+    </div>
 
-          <h2>Clarity and Organization:</h2>
-          <div className="analysis-item">
-            <strong>Strength:</strong>
-            <p>Top performers wrote well-structured, clear, and concise responses, enhancing readability and argument flow.</p>
-          </div>
-          <div className="analysis-item">
-            <strong>Weakness:</strong>
-            <p>Many average and lower performers had issues with organization, leading to unclear arguments and reduced coherence.</p>
-          </div>
+    <h2>Areas for Improvement:</h2>
+    <div className="analysis-item">
+      <strong>1. Depth of Economic Analysis:</strong>
+      <ul>
+        <li>Several students, including Avery Thompson and Kofi Adebayo, need to deepen their economic analysis by integrating more comprehensive metrics and theories.</li>
+        <li>Explicitly mentioning economic models and metrics can demonstrate a deeper understanding.</li>
+      </ul>
+    </div>
+    <div className="analysis-item">
+      <strong>2. Practical Application and Examples:</strong>
+      <ul>
+        <li>Incorporating more real-world examples and case studies could strengthen the arguments and provide practical context.</li>
+        <li>Students should consider the inclusion of specific examples to support their points, enhancing the practical relevance of their analysis.</li>
+      </ul>
+    </div>
+    <div className="analysis-item">
+      <strong>3. Addressing All Parts of Questions:</strong>
+      <ul>
+        <li>Some students missed addressing all aspects of the questions comprehensively. Ensuring thorough responses to all parts of a question is crucial for higher scores.</li>
+        <li>It's important to cover each part of the question in detail to provide a complete and well-rounded answer.</li>
+      </ul>
+    </div>
+    <div className="analysis-item">
+      <strong>4. Improving Clarity and Cohesion:</strong>
+      <ul>
+        <li>While most responses were clear, there is room for improvement in terms of conciseness and coherence. Minor grammatical and typographical errors need attention.</li>
+        <li>Ensuring that all points are directly relevant to the question and logically connected can improve the overall quality of the answers.</li>
+      </ul>
+    </div>
 
-          <h2>Critical Thinking and Insight:</h2>
-          <div className="analysis-item">
-            <strong>Strength:</strong>
-            <p>Students with higher scores showed strong critical thinking by weighing pros and cons, discussing long-term implications, and providing strategic insights.</p>
-          </div>
-          <div className="analysis-item">
-            <strong>Weakness:</strong>
-            <p>Lower scorers often presented basic insights without deeper exploration of implications or alternative perspectives.</p>
-          </div>
-
-          <h2>Use of Examples:</h2>
-          <div className="analysis-item">
-            <strong>Strength:</strong>
-            <p>High performers effectively used real-world examples to illustrate points and strengthen arguments.</p>
-          </div>
-          <div className="analysis-item">
-            <strong>Weakness:</strong>
-            <p>Lack of specific examples and empirical data in lower-scoring answers weakened the overall impact.</p>
-          </div>
-
-          <h2>Feedback Utilization:</h2>
-          <div className="analysis-item">
-            <h3>High Scorers:</h3>
-            <p>Students responded well to feedback, demonstrating improvement in areas highlighted for development.</p>
-          </div>
-          <div className="analysis-item">
-            <h3>Low Scorers:</h3>
-            <p>Need to better integrate feedback to enhance depth, clarity, and critical analysis.</p>
-          </div>
-
-          <h2>Actionable Recommendations:</h2>
-          <div className="analysis-item">
-            <strong>Enhance Depth of Analysis:</strong>
-            <ul>
-              <li>Encourage all students to integrate more detailed economic principles and metrics in their answers.</li>
-              <li>Provide training on how to connect theory to practice through specific examples and case studies.</li>
-            </ul>
-          </div>
-          <div className="analysis-item">
-            <strong>Improve Clarity and Organization:</strong>
-            <ul>
-              <li>Conduct workshops focused on effective writing techniques, emphasizing structure and coherence.</li>
-              <li>Offer templates and examples of well-organized answers to guide students.</li>
-            </ul>
-          </div>
-          <div className="analysis-item">
-            <strong>Strengthen Critical Thinking:</strong>
-            <ul>
-              <li>Develop critical thinking exercises that require students to analyze different perspectives and long-term implications.</li>
-              <li>Encourage the use of strategic insights and holistic views in their answers.</li>
-            </ul>
-          </div>
-          <div className="analysis-item">
-            <strong>Utilize Feedback:</strong>
-            <ul>
-              <li>Implement a structured feedback system that highlights specific areas for improvement and tracks student progress over time.</li>
-              <li>Offer one-on-one sessions to discuss feedback and provide personalized guidance.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+    <h2>Recommendations for the Class:</h2>
+    <div className="analysis-item">
+      <strong>1. Depth of Economic Analysis:</strong>
+      <p><strong>Action:</strong> Allocate more class time to in-depth discussions of key economic models and metrics. Ensure that students understand how to apply these concepts practically.</p>
+      <p><strong>Effort Focus:</strong> Conduct workshops or practical sessions where students can practice applying economic theories to real-world scenarios. Use case studies from various industries to demonstrate how to integrate these principles into their analyses.</p>
+    </div>
+    <div className="analysis-item">
+      <strong>2. Incorporating Real-World Examples:</strong>
+      <p><strong>Action:</strong> Integrate more real-world examples and case studies into lectures. Highlight successful and unsuccessful applications of economic strategies in different industries.</p>
+      <p><strong>Effort Focus:</strong> Provide assignments that require students to research and present case studies. This will help them understand the practical implications of theoretical concepts.</p>
+    </div>
+    <div className="analysis-item">
+      <strong>3. Addressing All Parts of Questions:</strong>
+      <p><strong>Action:</strong> Emphasize the importance of thoroughly addressing all components of a question. Teach students how to break down complex questions into manageable parts.</p>
+      <p><strong>Effort Focus:</strong> Offer detailed feedback on assignments, specifically pointing out any missed components. Conduct review sessions where students can learn how to structure their responses to cover all necessary aspects.</p>
+    </div>
+    <div className="analysis-item">
+      <strong>4. Improving Clarity and Cohesion:</strong>
+      <p><strong>Action:</strong> Focus on improving students' writing skills, particularly in organizing and articulating their thoughts clearly.</p>
+      <p><strong>Effort Focus:</strong> Incorporate writing workshops into the curriculum where students can practice structuring their answers logically. Provide examples of well-structured responses and highlight common pitfalls to avoid.</p>
+    </div>
+    <p className="conclusion">By focusing on these areas, the class can improve their overall performance, achieving a deeper understanding and better articulation of economic concepts and their applications.</p>
+  </div>
+</section>
     </div>
   );
 };
