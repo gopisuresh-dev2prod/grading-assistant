@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, Upload, Skeleton,notification } from 'antd';
+import { Input, Button, Upload, Skeleton,notification,Spin } from 'antd';
 import { UploadOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import './ModifyAssignmentPage.scss';
 import Header from '../common/Header';
@@ -15,7 +15,7 @@ const ModifyAssignmentPage = () => {
     mapping: []
   });
   const [isGrading, setIsGrading] = useState(false);
-  const [gradingComplete, setGradingComplete] = useState(true);
+  const [gradingComplete, setGradingComplete] = useState(false);
   const [countdown, setCountdown] = useState(10);
 
   const isStartGradingEnabled = assignmentName.trim() !== '' &&
@@ -59,13 +59,29 @@ const ModifyAssignmentPage = () => {
 
   const handleFileChange = (info, type) => {
     const { fileList } = info;
+    
+    // Set the file status to 'uploading' initially
     setFiles(prev => ({
       ...prev,
       [type]: fileList.map(file => ({
         ...file,
-        status: 'done'
+        status: 'uploading'
       }))
     }));
+  
+    // Generate a random duration between 5 and 10 seconds
+    const spinDuration = Math.floor(Math.random() * (10000 - 5000 + 1) + 5000);
+  
+    // Simulate the upload process
+    setTimeout(() => {
+      setFiles(prev => ({
+        ...prev,
+        [type]: fileList.map(file => ({
+          ...file,
+          status: 'done'
+        }))
+      }));
+    }, spinDuration);
   };
 
   const uploadProps = (type) => ({
@@ -85,30 +101,36 @@ const ModifyAssignmentPage = () => {
   });
 
   const renderUploadContent = (type) => {
-    const fileCount = files[type].length;
+    const fileList = files[type];
+    const fileCount = fileList.length;
     
     if (fileCount === 0) {
       return (
         <>
           <UploadOutlined className="upload-icon" />
           <p>Drag and drop files here</p>
-          <p className="file-types">Docx, PDF,JPG, PNG</p>
+          <p className="file-types">Docx, PDF, JPG, PNG</p>
           <Button icon={<UploadOutlined />}>upload</Button>
         </>
       );
     }
     
+    const isUploading = fileList.some(file => file.status === 'uploading');
+    
     return (
       <div className="file-count">
-        <CheckCircleOutlined style={{ color: 'green', fontSize: '24px' }} />
-        <span>{fileCount} file{fileCount > 1 ? 's' : ''} uploaded</span>
+        {isUploading ? (
+          <Spin />
+        ) : (
+          <CheckCircleOutlined style={{ color: 'green', fontSize: '24px' }} />
+        )}
+        <span>{fileCount} file{fileCount > 1 ? 's' : ''} {isUploading ? 'uploading' : 'uploaded'}</span>
         <Button icon={<UploadOutlined />} className="add-more-btn">
           Add More
         </Button>
       </div>
     );
   };
-
   return (
     <>
       <Header />
