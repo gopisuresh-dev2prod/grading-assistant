@@ -16,14 +16,15 @@ const ModifyAssignmentPage = () => {
     mapping: []
   });
   const [isGrading, setIsGrading] = useState(false);
-  const [gradingComplete, setGradingComplete] = useState(true);
+  const [gradingComplete, setGradingComplete] = useState(false);
   const [countdown, setCountdown] = useState(10);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleCategoryChange = (value) => {
+    console.log('e',value)
     setSelectedCategory(value);
   };
-  const isStartGradingEnabled = !selectedCategory&&assignmentName.trim() !== '' &&
+  const isStartGradingEnabled = selectedCategory!==null&&assignmentName.trim() !== '' &&
     Object.values(files).some(fileList => fileList.length > 0);
 
   const handleNameChange = (e) => {
