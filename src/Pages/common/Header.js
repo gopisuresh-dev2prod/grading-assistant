@@ -5,7 +5,7 @@ import { BellFilled, CaretDownOutlined, UserOutlined } from '@ant-design/icons';
 import './Header.scss';
 
 // Import your logo image
-import logoImage from '../../assests/logo.svg'; 
+import logoImage from '../../assests/headerlogo.png'; 
 
 const Header = () => {
   const navigate = useNavigate();
