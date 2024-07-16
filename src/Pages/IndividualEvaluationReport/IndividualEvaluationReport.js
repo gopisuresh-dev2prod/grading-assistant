@@ -195,8 +195,8 @@ const IndividualEvaluationReport = ({assignmentName}) => {
         ]}
       >
         <div className="modal-content">
-          <DocxViewer docxUrl={modalContent.leftDocx} />
-          <DocxViewer docxUrl={modalContent.rightDocx} />
+          <DocxViewer docxUrl={modalContent.leftDocx?modalContent.leftDocx:undefined} />
+          <DocxViewer docxUrl={modalContent.rightDocx?modalContent.rightDocx:undefined} />
         </div>
       </Modal>
     </div>
