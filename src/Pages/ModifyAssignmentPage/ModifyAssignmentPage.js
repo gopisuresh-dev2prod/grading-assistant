@@ -1,19 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { Input, Button, Upload, Skeleton,notification,Spin,Select } from 'antd';
-import { UploadOutlined, CheckCircleOutlined } from '@ant-design/icons';
-import './ModifyAssignmentPage.scss';
-import Header from '../common/Header';
-import EvaluationReportPage from '../EvaluationReportPage/EvaluationReportPage';
-import IndividualEvaluationReport from '../IndividualEvaluationReport/IndividualEvaluationReport';
+import React, { useState, useEffect } from "react";
+import {
+  Input,
+  Button,
+  Upload,
+  Skeleton,
+  notification,
+  Spin,
+  Select,
+} from "antd";
+import { UploadOutlined, CheckCircleOutlined } from "@ant-design/icons";
+import "./ModifyAssignmentPage.scss";
+import Header from "../common/Header";
+import EvaluationReportPage from "../EvaluationReportPage/EvaluationReportPage";
+import IndividualEvaluationReport from "../IndividualEvaluationReport/IndividualEvaluationReport";
 
 const { Option } = Select;
 const ModifyAssignmentPage = () => {
-  const [assignmentName, setAssignmentName] = useState('');
+  const [assignmentName, setAssignmentName] = useState("");
   const [files, setFiles] = useState({
     assignment: [],
     rubric: [],
     content: [],
-    mapping: []
+    mapping: [],
   });
   const [isGrading, setIsGrading] = useState(false);
   const [gradingComplete, setGradingComplete] = useState(false);
@@ -21,11 +29,13 @@ const ModifyAssignmentPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleCategoryChange = (value) => {
-    console.log('e',value)
+    console.log("e", value);
     setSelectedCategory(value);
   };
-  const isStartGradingEnabled = selectedCategory!==null && assignmentName.trim() !== '' &&
-    Object.values(files).some(fileList => fileList.length > 0);
+  const isStartGradingEnabled =
+    selectedCategory !== null &&
+    assignmentName.trim() !== "" &&
+    Object.values(files).some((fileList) => fileList.length > 0);
 
   const handleNameChange = (e) => {
     setAssignmentName(e.target.value);
@@ -34,9 +44,10 @@ const ModifyAssignmentPage = () => {
   const handleStartGrading = () => {
     if (!isStartGradingEnabled) {
       notification.error({
-        message: 'Validation Error',
-        description: 'Please ensure an select Category and assignment name is provided and files are uploaded.',
-        placement: 'bottom',
+        message: "Validation Error",
+        description:
+          "Please ensure an select Category and assignment name is provided and files are uploaded.",
+        placement: "bottom",
       });
       return;
     }
@@ -46,7 +57,7 @@ const ModifyAssignmentPage = () => {
     setCountdown(60); // Reset the countdown
 
     const countdownInterval = setInterval(() => {
-      setCountdown(prevCountdown => {
+      setCountdown((prevCountdown) => {
         if (prevCountdown > 55) {
           return prevCountdown - 1;
         } else if (prevCountdown > 1) {
@@ -62,36 +73,35 @@ const ModifyAssignmentPage = () => {
     }, 1000);
   };
 
-
   const handleFileChange = (info, type) => {
     const { fileList } = info;
-    
+
     // Set the file status to 'uploading' initially
-    setFiles(prev => ({
+    setFiles((prev) => ({
       ...prev,
-      [type]: fileList.map(file => ({
+      [type]: fileList.map((file) => ({
         ...file,
-        status: 'uploading'
-      }))
+        status: "uploading",
+      })),
     }));
-  
+
     // Generate a random duration between 5 and 10 seconds
     const spinDuration = Math.floor(Math.random() * (10000 - 5000 + 1) + 5000);
-  
+
     // Simulate the upload process
     setTimeout(() => {
-      setFiles(prev => ({
+      setFiles((prev) => ({
         ...prev,
-        [type]: fileList.map(file => ({
+        [type]: fileList.map((file) => ({
           ...file,
-          status: 'done'
-        }))
+          status: "done",
+        })),
       }));
     }, spinDuration);
   };
 
   const uploadProps = (type) => ({
-    accept: '.docx,.pdf,.jpg,.png,',
+    accept: '.docx,.pdf,.jpg,.png,.xls,.xlsx',
     multiple: true,
     fileList: files[type],
     onChange: (info) => handleFileChange(info, type),
@@ -99,9 +109,9 @@ const ModifyAssignmentPage = () => {
       const index = files[type].indexOf(file);
       const newFileList = files[type].slice();
       newFileList.splice(index, 1);
-      setFiles(prev => ({
+      setFiles((prev) => ({
         ...prev,
-        [type]: newFileList
+        [type]: newFileList,
       }));
     },
   });
@@ -109,28 +119,32 @@ const ModifyAssignmentPage = () => {
   const renderUploadContent = (type) => {
     const fileList = files[type];
     const fileCount = fileList.length;
-    
+
     if (fileCount === 0) {
       return (
         <>
           <UploadOutlined className="upload-icon" />
           <p>Drag and drop files here</p>
-          <p className="file-types">Docx, PDF, JPG, PNG</p>
+
+          <p className="file-types">Docx, PDF, JPG, PNG, XLS</p>
           <Button icon={<UploadOutlined />}>upload</Button>
         </>
       );
     }
-    
-    const isUploading = fileList.some(file => file.status === 'uploading');
-    
+
+    const isUploading = fileList.some((file) => file.status === "uploading");
+
     return (
       <div className="file-count">
         {isUploading ? (
           <Spin />
         ) : (
-          <CheckCircleOutlined style={{ color: 'green', fontSize: '24px' }} />
+          <CheckCircleOutlined style={{ color: "green", fontSize: "24px" }} />
         )}
-        <span>{fileCount} file{fileCount > 1 ? 's' : ''} {isUploading ? 'uploading' : 'uploaded'}</span>
+        <span>
+          {fileCount} file{fileCount > 1 ? "s" : ""}{" "}
+          {isUploading ? "uploading" : "uploaded"}
+        </span>
         <Button icon={<UploadOutlined />} className="add-more-btn">
           Add More
         </Button>
@@ -142,35 +156,34 @@ const ModifyAssignmentPage = () => {
       <Header />
       <div className="modify-assignment-page">
         <div className="content-wrapper">
-        <div className="assignment-header">
-        <Select
-    className="assignment-category-select"
-    placeholder="Select Category"
-    onChange={handleCategoryChange}
-    value={selectedCategory}
-  >
-    <Option value="business">Business and Economics</Option>
-    <Option value="social">Social Sciences</Option>
-    <Option value="language">Language Arts</Option>
-    <Option value="math">Mathematics</Option>
-    <Option value="computer">Computer Science</Option>
-    <Option value="others">Others</Option>
-  </Select>
-  <Input
-    className="assignment-name-input"
-    placeholder="Enter Assignment Name"
-    value={assignmentName}
-    onChange={handleNameChange}
-  />
-  
-</div>
+          <div className="assignment-header">
+            <Select
+              className="assignment-category-select"
+              placeholder="Select Category"
+              onChange={handleCategoryChange}
+              value={selectedCategory}
+            >
+              <Option value="business">Business and Economics</Option>
+              <Option value="social">Social Sciences</Option>
+              <Option value="language">Language Arts</Option>
+              <Option value="math">Mathematics</Option>
+              <Option value="computer">Computer Science</Option>
+              <Option value="others">Others</Option>
+            </Select>
+            <Input
+              className="assignment-name-input"
+              placeholder="Enter Assignment Name"
+              value={assignmentName}
+              onChange={handleNameChange}
+            />
+          </div>
           <h1 className="page-title">Intelligent Grading Assistant</h1>
           <div className="upload-grid">
             {[
-              { title: ' Assignment', type: 'assignment' },
-              { title: ' Grading Rubric', type: 'rubric' },
-              { title: ' Course Content', type: 'content' },
-              { title: 'Assignment to Student Mapping', type: 'mapping' }
+              { title: " Assignment", type: "assignment" },
+              { title: " Grading Rubric", type: "rubric" },
+              { title: " Course Content", type: "content" },
+              { title: "Assignment to Student Mapping", type: "mapping" },
             ].map(({ title, type }) => (
               <div key={title} className="upload-card">
                 <h3>{title}</h3>
@@ -189,7 +202,7 @@ const ModifyAssignmentPage = () => {
             onClick={handleStartGrading}
             // disabled={isGrading || !isStartGradingEnabled}
           >
-            {isGrading ? 'GRADING...' : 'START GRADING'}
+            {isGrading ? "GRADING..." : "START GRADING"}
           </Button>
 
           {isGrading && (
