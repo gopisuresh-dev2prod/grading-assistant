@@ -24,7 +24,7 @@ const ModifyAssignmentPage = () => {
     console.log('e',value)
     setSelectedCategory(value);
   };
-  const isStartGradingEnabled = selectedCategory!==null&&assignmentName.trim() !== '' &&
+  const isStartGradingEnabled = selectedCategory!==null && assignmentName.trim() !== '' &&
     Object.values(files).some(fileList => fileList.length > 0);
 
   const handleNameChange = (e) => {
